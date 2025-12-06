@@ -20,7 +20,7 @@ namespace FitnessCenterManagement.Models
         [Display(Name = "Kapanış Saati")]
         public TimeSpan CloseHour { get; set; }
 
-        // İlişkiler
+        
         public ICollection<Service> Services { get; set; } = new List<Service>();
         public ICollection<Trainer> Trainers { get; set; } = new List<Trainer>();
     }
