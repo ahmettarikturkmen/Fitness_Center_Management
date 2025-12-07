@@ -1,0 +1,60 @@
+﻿@model FitnessCenterManagement.Models.Service
+
+@{
+    ViewData["Title"] = "Yeni Hizmet Ekle";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h4>Yeni Hizmet / Ders Ekle</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CreateService" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Hizmetin Verildiği Salon</label>
+                            <select asp-for="GymId" class="form-select" asp-items="ViewBag.Gyms">
+                                <option value="">-- Salon Seçiniz --</option>
+                            </select>
+                            <span asp-validation-for="GymId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Örn: Reformer Pilates, Aylık Üyelik" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Duration" class="form-label"></label>
+                                <div class="input-group">
+                                    <input asp-for="Duration" type="number" class="form-control" placeholder="45" />
+                                    <span class="input-group-text">dk</span>
+                                </div>
+                                <span asp-validation-for="Duration" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Price" class="form-label"></label>
+                                <div class="input-group">
+                                    <input asp-for="Price" type="number" class="form-control" placeholder="0" />
+                                    <span class="input-group-text">₺</span>
+                                </div>
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">Kaydet</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="ServiceList" class="btn btn-secondary w-100">Vazgeç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

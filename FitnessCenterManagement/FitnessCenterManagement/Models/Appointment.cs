@@ -7,16 +7,21 @@ namespace FitnessCenterManagement.Models
         [Key]
         public int Id { get; set; }
 
+        public int GymId { get; set; }
+        public Gym? Gym { get; set; }
+
         // Hangi Üye? (Identity tablosuyla ilişki)
         [Required]
         public string MemberId { get; set; } = string.Empty;
         public ApplicationUser? Member { get; set; }
 
-        // Hangi Hoca?
+        [Required(ErrorMessage = "Lütfen bir eğitmen seçiniz.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Lütfen geçerli bir eğitmen seçiniz.")]
         public int TrainerId { get; set; }
         public Trainer? Trainer { get; set; }
 
-        // Hangi Ders?
+        [Required(ErrorMessage = "Lütfen bir hizmet seçiniz.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Lütfen geçerli bir hizmet seçiniz.")]
         public int ServiceId { get; set; }
         public Service? Service { get; set; }
 

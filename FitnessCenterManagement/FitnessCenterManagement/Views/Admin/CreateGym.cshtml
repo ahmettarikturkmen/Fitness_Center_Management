@@ -1,0 +1,52 @@
+﻿@model FitnessCenterManagement.Models.Gym
+
+@{
+    ViewData["Title"] = "Yeni Salon Ekle";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h4>Yeni Spor Salonu Ekle</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CreateGym" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Örn: Merkez Kampüs Spor Salonu" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Address" class="form-label"></label>
+                            <textarea asp-for="Address" class="form-control" rows="2"></textarea>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="OpenHour" class="form-label"></label>
+                                <input asp-for="OpenHour" type="time" class="form-control" />
+                                <span asp-validation-for="OpenHour" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CloseHour" class="form-label"></label>
+                                <input asp-for="CloseHour" type="time" class="form-control" />
+                                <span asp-validation-for="CloseHour" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">Kaydet</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="GymList" class="btn btn-secondary w-100">Vazgeç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

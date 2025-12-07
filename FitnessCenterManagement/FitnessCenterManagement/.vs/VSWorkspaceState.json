@@ -1,8 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Models"
+    "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Models\\Gym.cs",
   "PreviewInSolutionExplorer": false
 }

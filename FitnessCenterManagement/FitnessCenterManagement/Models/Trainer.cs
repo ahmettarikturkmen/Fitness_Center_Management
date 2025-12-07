@@ -11,6 +11,8 @@ namespace FitnessCenterManagement.Models
         [Display(Name = "Ad Soyad")]
         public string FullName { get; set; } = string.Empty;
 
+        public string Email { get; set; }
+
         [Display(Name = "Uzmanlık Alanı")]
         public string Specialty { get; set; } = string.Empty; // Yoga, Fitness, vb.
 

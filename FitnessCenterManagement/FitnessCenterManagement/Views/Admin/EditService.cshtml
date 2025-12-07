@@ -1,0 +1,35 @@
+﻿@model FitnessCenterManagement.Models.Service
+@{
+    ViewData["Title"] = "Hizmeti Düzenle";
+}
+
+<div class="container mt-4">
+    <h2>Hizmeti Düzenle</h2>
+    <div class="card shadow">
+        <div class="card-body">
+            <form asp-action="EditService" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label class="form-label">Salon</label>
+                    <select asp-for="GymId" class="form-select" asp-items="ViewBag.Gyms"></select>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label asp-for="Duration">Süre (Dk)</label>
+                        <input asp-for="Duration" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Price">Ücret (₺)</label>
+                        <input asp-for="Price" class="form-control" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-warning mt-3 w-100">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

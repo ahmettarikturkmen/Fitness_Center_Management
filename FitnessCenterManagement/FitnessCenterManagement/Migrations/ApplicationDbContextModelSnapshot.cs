@@ -31,7 +31,7 @@ namespace FitnessCenterManagement.Migrations
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("BirthDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -102,7 +102,10 @@ namespace FitnessCenterManagement.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AppointmentDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("GymId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("MemberId")
                         .IsRequired()
@@ -119,6 +122,8 @@ namespace FitnessCenterManagement.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GymId");
 
                     b.HasIndex("MemberId");
 
@@ -191,6 +196,10 @@ namespace FitnessCenterManagement.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -344,6 +353,12 @@ namespace FitnessCenterManagement.Migrations
 
             modelBuilder.Entity("FitnessCenterManagement.Models.Appointment", b =>
                 {
+                    b.HasOne("FitnessCenterManagement.Models.Gym", "Gym")
+                        .WithMany()
+                        .HasForeignKey("GymId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("FitnessCenterManagement.Models.ApplicationUser", "Member")
                         .WithMany()
                         .HasForeignKey("MemberId")
@@ -361,6 +376,8 @@ namespace FitnessCenterManagement.Migrations
                         .HasForeignKey("TrainerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Gym");
 
                     b.Navigation("Member");
 

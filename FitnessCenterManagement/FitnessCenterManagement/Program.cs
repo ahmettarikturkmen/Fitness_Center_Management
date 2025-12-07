@@ -3,7 +3,16 @@ using FitnessCenterManagement.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    // Uygulamanýn çalýþtýðý ana dizini garanti altýna alýyoruz
+    ContentRootPath = Directory.GetCurrentDirectory(),
+    // wwwroot klasörünü açýkça belirtiyoruz
+    WebRootPath = "wwwroot"
+});
 
 // 1. Veritabaný Baðlantýsýný Ekliyoruz (PostgreSQL)
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
@@ -30,11 +39,14 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
+app.Environment.EnvironmentName = "Development";
+
+// HTTP istek hattý ayarlarý
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -48,5 +60,21 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// VERÝTABANI TOHUMLAMA (SEEDING) ÝÞLEMÝ
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        // Yazdýðýmýz metodu çaðýrýyoruz
+        await DbSeeder.SeedRolesAndAdminAsync(services);
+    }
+    catch (Exception ex)
+    {
+        // Hata olursa loglayabiliriz veya boþ geçebiliriz
+        Console.WriteLine("Seeding sýrasýnda hata oluþtu: " + ex.Message);
+    }
+}
 
 app.Run();

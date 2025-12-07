@@ -1,0 +1,61 @@
+﻿@model FitnessCenterManagement.Models.Appointment
+
+@{
+    ViewData["Title"] = "Randevu Al";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4>Randevu Oluştur</h4>
+                    <p class="mb-0">Salon: <strong>@ViewBag.GymName</strong></p>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    <form asp-action="Create" method="post">
+                        <input type="hidden" name="gymId" value="@ViewBag.GymId" />
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Tarih</label>
+                                <input type="date" name="date" class="form-control" required min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Saat</label>
+                                <input type="time" name="time" class="form-control" required />
+                                <small class="text-muted">Çalışma Saatleri: @ViewBag.OpenHour - @ViewBag.CloseHour</small>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Almak İstediğiniz Hizmet</label>
+                                <select asp-for="ServiceId" class="form-select" asp-items="ViewBag.Services">
+                                    <option value="">-- Hizmet Seçiniz --</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Eğitmen Tercihi</label>
+                                <select asp-for="TrainerId" class="form-select" asp-items="ViewBag.Trainers">
+                                    <option value="">-- Eğitmen Seçiniz --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 btn-lg mt-3">Randevu Al</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

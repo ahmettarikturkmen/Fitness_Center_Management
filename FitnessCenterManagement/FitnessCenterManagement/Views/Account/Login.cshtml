@@ -1,0 +1,44 @@
+@model FitnessCenterManagement.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Giriþ Yap";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Üye Giriþi</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Login" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" placeholder="Email adresiniz" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input asp-for="Password" class="form-control" placeholder="Þifreniz" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label class="form-check-label">Beni Hatýrla</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Giriþ Yap</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-0">Hesabýn yok mu? <a asp-action="Register">Hemen Kayýt Ol</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

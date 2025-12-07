@@ -25,6 +25,43 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-danger fw-bold" asp-controller="Admin" asp-action="Index">YÖNETİM PANELİ</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Trainer"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-primary fw-bold" asp-controller="Trainer" asp-action="Index">EĞİTMEN PANELİ</a>
+                            </li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <span class="nav-link text-dark fw-bold">Merhaba, @User.Identity.Name</span>
+                        </li>
+                         <li class="nav-item">
+                               <a class="nav-link text-dark fw-bold" asp-controller="Appointment" asp-action="Index">RANDEVULARIM</a>
+                         </li>
+                        <li class="nav-item">
+                            <form class="form-inline" asp-controller="Account" asp-action="Logout" method="post">
+                                <button type="submit" class="nav-link btn btn-link text-danger" style="text-decoration:none; border:none;">Çıkış Yap</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark btn btn-outline-primary ms-2" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        </li>
+                    }
                     </ul>
                 </div>
             </div>

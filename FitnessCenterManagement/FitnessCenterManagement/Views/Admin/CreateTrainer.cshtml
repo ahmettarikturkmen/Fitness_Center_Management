@@ -1,0 +1,53 @@
+﻿@model FitnessCenterManagement.Models.Trainer
+
+@{
+    ViewData["Title"] = "Yeni Antrenör";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4>Yeni Eğitmen Ekle</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CreateTrainer" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Görevli Olduğu Salon</label>
+                            <select asp-for="GymId" class="form-select" asp-items="ViewBag.Gyms">
+                                <option value="">-- Salon Seçiniz --</option>
+                            </select>
+                            <span asp-validation-for="GymId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label"></label>
+                            <input asp-for="FullName" class="form-control" placeholder="Ad Soyad" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">E-Posta Adresi (Giriş için kullanılacak)</label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="hoca@gym.com" required />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Specialty" class="form-label"></label>
+                            <input asp-for="Specialty" class="form-control" placeholder="Örn: Pilates Eğitmeni, Personal Trainer" />
+                            <span asp-validation-for="Specialty" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Eğitmeni Kaydet</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="TrainerList" class="btn btn-secondary w-100">Vazgeç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

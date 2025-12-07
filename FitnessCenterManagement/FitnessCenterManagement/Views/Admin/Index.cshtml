@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Admin Paneli";
+}
+
+<div class="container mt-4">
+    <h1 class="display-4">Yönetim Paneli</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3 shadow">
+                <div class="card-header">Spor Salonları</div>
+                <div class="card-body">
+                    <h5 class="card-title">Salon Yönetimi</h5>
+                    <p class="card-text">Sistemdeki salonları ekle, düzenle veya sil.</p>
+                    <a asp-action="GymList" class="btn btn-light text-primary fw-bold">Listeye Git</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3 shadow">
+                <div class="card-header">Eğitmenler</div>
+                <div class="card-body">
+                    <h5 class="card-title">Antrenör Kadrosu</h5>
+                    <p class="card-text">Yeni hocalar ekle veya uzmanlık alanlarını güncelle.</p>
+                    <a asp-action="TrainerList" class="btn btn-light text-success fw-bold">Listeye Git</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-dark bg-warning mb-3 shadow">
+                <div class="card-header">Hizmetler</div>
+                <div class="card-body">
+                    <h5 class="card-title">Ders & Üyelikler</h5>
+                    <p class="card-text">Pilates, Yoga gibi hizmetleri ve fiyatlarını yönet.</p>
+                    <a asp-action="ServiceList" class="btn btn-light text-warning fw-bold">Listeye Git</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

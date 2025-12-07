@@ -1,8 +1,65 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<FitnessCenterManagement.Models.Gym>
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center p-5 bg-light rounded-3 mb-5">
+    <h1 class="display-4 fw-bold">Hoş Geldiniz!</h1>
+    <p class="lead">Spor Salonu Yönetim Sistemine giriş yaptınız.</p>
+</div>
+
+<div class="container">
+    <h2 class="mb-4 text-center">Salonlarımız ve Hizmetler</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center">
+            <h3>Sistemde kayıtlı spor salonu bulunamadı!</h3>
+            <p>Lütfen Admin panelinden salon ekleyiniz.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var gym in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0">@gym.Name</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">@gym.Address</p>
+                            <p><strong>Saatler:</strong> @gym.OpenHour - @gym.CloseHour</p>
+
+                            <hr />
+                            <h5>Hizmetler:</h5>
+                            @if (gym.Services.Any())
+                            {
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var service in gym.Services)
+                                    {
+                                        <li class="list-group-item d-flex justify-content-between">
+                                            @service.Name
+                                            <span class="badge bg-success">@service.Price ₺</span>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p class="text-muted">Hizmet bilgisi yok.</p>
+                            }
+                        </div>
+                        <div class="card-footer bg-white border-0 text-center pb-3">
+                            <a asp-controller="Appointment" asp-action="Create" asp-route-gymId="@gym.Id" class="btn btn-outline-primary w-100">
+                                Randevu Al
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
 </div>

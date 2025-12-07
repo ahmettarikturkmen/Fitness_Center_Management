@@ -1,0 +1,36 @@
+﻿@model FitnessCenterManagement.Models.Gym
+@{
+    ViewData["Title"] = "Salonu Düzenle";
+}
+
+<div class="container mt-4">
+    <h2>Salonu Düzenle</h2>
+    <div class="card shadow">
+        <div class="card-body">
+            <form asp-action="EditGym" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Address" class="form-label"></label>
+                    <textarea asp-for="Address" class="form-control"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label asp-for="OpenHour"></label>
+                        <input asp-for="OpenHour" type="time" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="CloseHour"></label>
+                        <input asp-for="CloseHour" type="time" class="form-control" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-warning mt-3 w-100">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

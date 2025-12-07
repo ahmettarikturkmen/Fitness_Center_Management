@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FitnessCenterManagement.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Eğitmen Paneli";
+}
+
+<div class="container mt-4">
+    <div class="bg-primary text-white p-4 rounded mb-4">
+        <h2>🏋️‍♂️ Eğitmen Paneli</h2>
+        <p>Hoş geldiniz! Size gelen randevu taleplerini buradan yönetebilirsiniz.</p>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">Şu an bekleyen veya geçmiş randevunuz bulunmamaktadır.</div>
+    }
+    else
+    {
+        <div class="card shadow">
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Tarih & Saat</th>
+                            <th>Öğrenci (Üye)</th>
+                            <th>Ders</th>
+                            <th>Durum</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.AppointmentDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>
+                                    <strong>@item.Member?.FullName</strong> <br />
+                                    <small class="text-muted">@item.Member?.Email</small>
+                                </td>
+                                <td>@item.Service?.Name</td>
+                                <td>
+                                    @if (item.Status == "Bekliyor")
+                                    {
+                                        <span class="badge bg-warning text-dark">Onay Bekliyor</span>
+                                    }
+                                    else if (item.Status == "Onaylandı")
+                                    {
+                                        <span class="badge bg-success">Onaylandı</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Reddedildi</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Status == "Bekliyor")
+                                    {
+                                        <div class="d-flex gap-2">
+                                            <form asp-action="Approve" asp-route-id="@item.Id" method="post">
+                                                <button class="btn btn-sm btn-success">✔ Onayla</button>
+                                            </form>
+                                            <form asp-action="Reject" asp-route-id="@item.Id" method="post">
+                                                <button class="btn btn-sm btn-danger">X Reddet</button>
+                                            </form>
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
