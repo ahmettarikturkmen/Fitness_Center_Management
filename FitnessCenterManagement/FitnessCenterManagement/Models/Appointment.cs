@@ -10,7 +10,7 @@ namespace FitnessCenterManagement.Models
         public int GymId { get; set; }
         public Gym? Gym { get; set; }
 
-        // Hangi Üye? (Identity tablosuyla ilişki)
+        // Hangi Üye? (Identity tablosuyla ilişki)....
         [Required]
         public string MemberId { get; set; } = string.Empty;
         public ApplicationUser? Member { get; set; }
