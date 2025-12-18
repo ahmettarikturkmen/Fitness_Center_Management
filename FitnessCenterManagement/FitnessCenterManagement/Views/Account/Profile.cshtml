@@ -1,0 +1,95 @@
+﻿@model FitnessCenterManagement.Models.UserProfileViewModel
+
+@{
+    ViewData["Title"] = "Profilim";
+}
+
+<div class="container mt-5">
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-5 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">👤 Kişisel Bilgilerim</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="UpdateInfo" method="post">
+
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label fw-bold">Ad Soyad</label>
+                            <input asp-for="FullName" class="form-control" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">E-Posta</label>
+                            <input asp-for="Email" class="form-control" readonly style="background-color: #e9ecef;" />
+                            <small class="text-muted">E-posta değiştirmek için yönetici ile görüşünüz.</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="BirthDate" class="form-label fw-bold">Doğum Tarihi</label>
+                            <input asp-for="BirthDate" type="date" class="form-control" />
+                            <span asp-validation-for="BirthDate" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-info text-white w-100 mt-2">Bilgileri Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">🔒 Şifre Değiştir</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="ChangePassword" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="CurrentPassword" class="form-label">Mevcut Şifre</label>
+                            <input asp-for="CurrentPassword" class="form-control" placeholder="Şu anki şifrenizi girin" />
+                            <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="NewPassword" class="form-label">Yeni Şifre</label>
+                                <input asp-for="NewPassword" class="form-control" placeholder="Yeni şifre" />
+                                <span asp-validation-for="NewPassword" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ConfirmNewPassword" class="form-label">Yeni Şifre (Tekrar)</label>
+                                <input asp-for="ConfirmNewPassword" class="form-control" placeholder="Tekrar girin" />
+                                <span asp-validation-for="ConfirmNewPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning w-100">
+                            Şifreyi Güncelle
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

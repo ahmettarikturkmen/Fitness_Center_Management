@@ -1,4 +1,5 @@
 ﻿using FitnessCenterManagement.Data;
+using FitnessCenterManagement.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -66,6 +67,68 @@ namespace FitnessCenterManagement.Controllers
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        // ==========================================
+        // ÇALIŞMA SAATLERİ YÖNETİMİ
+        // ==========================================
+
+        // 1. Saatleri Listeleme Sayfası
+        public async Task<IActionResult> WorkHours()
+        {
+            var userEmail = User.Identity.Name;
+            var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Email == userEmail);
+            if (trainer == null) return RedirectToAction("Index");
+
+            // Hocanın eklediği saatleri getir ve güne göre sırala
+            var hours = await _context.TrainerWorkHours
+                .Where(w => w.TrainerId == trainer.Id)
+                .OrderBy(w => w.DayOfWeek)
+                .ThenBy(w => w.StartTime)
+                .ToListAsync();
+
+            return View(hours);
+        }
+
+        // 2. Yeni Saat Ekleme (POST)
+        [HttpPost]
+        public async Task<IActionResult> AddWorkHour(int dayOfWeek, TimeSpan startTime, TimeSpan endTime)
+        {
+            var userEmail = User.Identity.Name;
+            var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Email == userEmail);
+            if (trainer == null) return RedirectToAction("Index");
+
+            if (startTime >= endTime)
+            {
+                TempData["Error"] = "Başlangıç saati bitiş saatinden büyük olamaz.";
+                return RedirectToAction("WorkHours");
+            }
+
+            var newHour = new TrainerWorkHour
+            {
+                TrainerId = trainer.Id,
+                DayOfWeek = dayOfWeek,
+                StartTime = startTime,
+                EndTime = endTime
+            };
+
+            _context.TrainerWorkHours.Add(newHour);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("WorkHours");
+        }
+
+        // 3. Saat Silme (POST)
+        [HttpPost]
+        public async Task<IActionResult> DeleteWorkHour(int id)
+        {
+            var workHour = await _context.TrainerWorkHours.FindAsync(id);
+            if (workHour != null)
+            {
+                _context.TrainerWorkHours.Remove(workHour);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("WorkHours");
         }
     }
 }

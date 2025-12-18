@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "ContainingType": "FitnessCenterManagement.Controllers.ReportsApiController",
+    "Method": "GetAppointments",
+    "RelativePath": "api/ReportsApi/GetAppointments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

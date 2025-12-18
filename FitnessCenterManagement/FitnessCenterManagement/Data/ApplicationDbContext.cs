@@ -16,6 +16,7 @@ namespace FitnessCenterManagement.Data
         public DbSet<Trainer> Trainers { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<TrainerWorkHour> TrainerWorkHours { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

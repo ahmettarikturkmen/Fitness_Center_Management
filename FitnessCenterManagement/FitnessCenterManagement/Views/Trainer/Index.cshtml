@@ -8,7 +8,13 @@
     <div class="bg-primary text-white p-4 rounded mb-4">
         <h2>🏋️‍♂️ Eğitmen Paneli</h2>
         <p>Hoş geldiniz! Size gelen randevu taleplerini buradan yönetebilirsiniz.</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <a asp-action="WorkHours" class="btn btn-warning fw-bold shadow">
+                🕒 Çalışma Saatlerini Düzenle
+            </a>
+        </div>
     </div>
+    
 
     @if (!Model.Any())
     {

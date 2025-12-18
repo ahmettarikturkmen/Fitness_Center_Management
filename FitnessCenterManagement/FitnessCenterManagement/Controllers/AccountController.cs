@@ -1,5 +1,7 @@
 ﻿using FitnessCenterManagement.Models;
-using FitnessCenterManagement.Models.ViewModels;
+using FitnessCenterManagement.Models.ViewModels; // Login/Register ViewModel'leri burada
+using FitnessCenterManagement.Models; // UserProfileViewModel burada olabilir (Namespace kontrolü yap)
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,26 +9,23 @@ namespace FitnessCenterManagement.Controllers
 {
     public class AccountController : Controller
     {
-        // Identity servislerini tanımlıyoruz
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        // Constructor (Yapıcı Metot): Servisleri içeri alıyoruz
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
 
-        // --- LOGIN (GİRİŞ YAP) ---
+        // ==========================================
+        // MEVCUT KODLARIN (LOGIN / REGISTER / LOGOUT)
+        // ==========================================
+
         [HttpGet]
         public IActionResult Login()
         {
-            // Eğer kullanıcı zaten giriş yapmışsa direkt anasayfaya atalım
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            if (User.Identity.IsAuthenticated) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -35,33 +34,21 @@ namespace FitnessCenterManagement.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            // 1. Kullanıcıyı emailden bul
             var user = await _userManager.FindByEmailAsync(model.Email);
-
             if (user != null)
             {
-                // 2. Şifreyi kontrol et
-                // (son parametre 'false': şifre yanlışsa hesabı kilitleme demek)
                 var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
+                if (result.Succeeded) return RedirectToAction("Index", "Home");
             }
 
             ModelState.AddModelError("", "Email veya şifre hatalı.");
             return View(model);
         }
 
-        // --- REGISTER (KAYIT OL) ---
         [HttpGet]
         public IActionResult Register()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            if (User.Identity.IsAuthenticated) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -70,39 +57,31 @@ namespace FitnessCenterManagement.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            // Yeni kullanıcı nesnesi oluşturuyoruz
             var user = new ApplicationUser
             {
-                UserName = model.Email, // Kullanıcı adı olarak Email kullanıyoruz
+                UserName = model.Email,
                 Email = model.Email,
                 FullName = model.FullName,
                 BirthDate = model.BirthDate,
-                EmailConfirmed = true // Şimdilik email onayı istemiyoruz
+                EmailConfirmed = true
             };
 
-            // Şifreyi hashleyip kaydediyoruz
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
-                // Yeni kayıt olanlara varsayılan olarak "Member" rolü verelim
                 await _userManager.AddToRoleAsync(user, "Member");
-
-                // Kayıt bittikten sonra otomatik giriş yapsın
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToAction("Index", "Home");
             }
 
-            // Hata varsa (örn: şifre çok basitse) ekrana yazdır
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError("", error.Description);
             }
-
             return View(model);
         }
 
-        // --- LOGOUT (ÇIKIŞ YAP) ---
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -110,10 +89,121 @@ namespace FitnessCenterManagement.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // Yetkisiz giriş sayfası
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        // ==========================================
+        // !!! YENİ EKLENEN KISIMLAR (PROFİL & ŞİFRE) !!!
+        // ==========================================
+
+        // [Authorize]: Sadece giriş yapmış kullanıcılar burayı görebilir
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login");
+
+            var model = new UserProfileViewModel
+            {
+                FullName = user.FullName,
+                Email = user.Email,
+                BirthDate = user.BirthDate
+            };
+
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(UserProfileViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login");
+
+            // Model validasyonu (Sadece şifre alanlarını kontrol etsek yeterli)
+            if (!string.IsNullOrEmpty(model.CurrentPassword) &&
+                !string.IsNullOrEmpty(model.NewPassword) &&
+                !string.IsNullOrEmpty(model.ConfirmNewPassword))
+            {
+                // Identity kütüphanesinin şifre değiştirme fonksiyonu
+                var result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+
+                if (result.Succeeded)
+                {
+                    // Şifre değişince oturumun düşmemesi için tazeleyelim
+                    await _signInManager.RefreshSignInAsync(user);
+                    TempData["SuccessMessage"] = "Şifreniz başarıyla güncellendi!";
+
+                    // Başarılı olursa sayfayı yeniden yükle (Mesajı görsün)
+                    return RedirectToAction("Profile");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+
+            // Hata varsa bilgileri tekrar doldurup sayfayı geri gönder
+            model.FullName = user.FullName;
+            model.Email = user.Email;
+            model.BirthDate = user.BirthDate;
+
+            return View("Profile", model);
+        }
+
+        // ==========================================
+        // YENİ EKLENEN: KİŞİSEL BİLGİ GÜNCELLEME
+        // ==========================================
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> UpdateInfo(UserProfileViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login");
+
+            // Şifre alanları boş geleceği için Validation hatası verebilir.
+            // Bu formda şifre değiştirmiyoruz, o yüzden o hataları temizliyoruz.
+            ModelState.Remove("CurrentPassword");
+            ModelState.Remove("NewPassword");
+            ModelState.Remove("ConfirmNewPassword");
+
+            if (ModelState.IsValid)
+            {
+                // Bilgileri güncelle
+                user.FullName = model.FullName;
+                if (model.BirthDate.HasValue)
+                {
+                    user.BirthDate = model.BirthDate.Value;
+                }
+
+                // Veritabanına kaydet
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    // İsim değiştiği için üst menüdeki "Merhaba [İsim]" yazısının da 
+                    // hemen güncellenmesi için oturumu tazelememiz lazım.
+                    await _signInManager.RefreshSignInAsync(user);
+
+                    TempData["SuccessMessage"] = "Profil bilgileriniz güncellendi.";
+                    return RedirectToAction("Profile");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+
+            // Hata varsa sayfayı tekrar göster (Email kaybolmasın diye tekrar dolduruyoruz)
+            model.Email = user.Email;
+            return View("Profile", model);
         }
     }
 }

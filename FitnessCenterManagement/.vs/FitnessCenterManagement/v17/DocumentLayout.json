@@ -1,126 +1,182 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\",
+  "WorkspaceRootPath": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\ai\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\ai\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\trainer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\trainer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\viewmodels\\airequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\viewmodels\\airequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\edittrainer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\edittrainer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\createtrainer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\createtrainer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\servicelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\servicelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\trainerlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\trainerlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\gymlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\gymlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\editservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\editservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\editgym.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\editgym.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\createservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\reportsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\reportsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\trainer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\trainer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\trainer\\workhours.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\trainer\\workhours.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\trainerworkhour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\trainerworkhour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\userlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\userlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\edittrainer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\edittrainer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\createtrainer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\createtrainer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\servicelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\servicelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\trainerlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\trainerlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\gymlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\gymlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\editservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\editservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\editgym.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\editgym.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\createservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\createservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\creategym.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\views\\admin\\creategym.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\views\\admin\\creategym.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\models\\gym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\gym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\gym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\fitnesscentermanagement\\fitnesscentermanagement\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\migrations\\20251207124053_addemailtotrainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\migrations\\20251207124053_addemailtotrainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\migrations\\20251207115545_addgymtoappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\migrations\\20251207115545_addgymtoappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|c:\\users\\ms\u0130\\onedrive\\masa\u00FCst\u00FC\\web programlamaproje\\fitnesscentermanagement\\fitnesscentermanagement\\migrations\\20251217160415_addworkhours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8A67194-06DB-4E05-843E-12EB4F0CC998}|FitnessCenterManagement\\FitnessCenterManagement.csproj|solutionrelative:fitnesscentermanagement\\migrations\\20251217160415_addworkhours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -130,314 +186,460 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Trainer\\Index.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Trainer\\Index.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Trainer\\Index.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Trainer\\Index.cshtml",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAAAEIAAAAlAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\AI\\Index.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\AI\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\AI\\Index.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\AI\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T13:37:26.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TrainerController.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\TrainerController.cs",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\TrainerController.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\TrainerController.cs",
-              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\TrainerController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAIwDgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T13:32:57.368Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "20251207124053_AddEmailToTrainer.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs",
-              "RelativeToolTip": "FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T12:40:53.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAQwEAAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T12:07:19.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwCoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T12:05:30.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "20251207115545_AddGymToAppointment.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs",
-              "RelativeToolTip": "FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T11:55:45.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Appointment\\Index.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Appointment\\Index.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Appointment\\Index.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Appointment\\Index.cshtml",
-              "ViewState": "AgIAACYAAAAAAAAAAAAIwC8AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T11:47:10.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-17T17:00:54.348Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Appointment\\Create.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Appointment\\Create.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Appointment\\Create.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Appointment\\Create.cshtml",
-              "ViewState": "AgIAACYAAAAAAAAAAAAQwDwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T11:44:47.595Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppointmentController.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AppointmentController.cs",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\AppointmentController.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AppointmentController.cs",
-              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAkwGAAAAANAAAAAAAAAA==",
+              "Title": "AIController.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AIController.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\AIController.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AIController.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\AIController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAswCQAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T11:42:19.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "EditService.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditService.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\EditService.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditService.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\EditService.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAuwCIAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T10:52:08.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EditTrainer.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditTrainer.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\EditTrainer.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditTrainer.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\EditTrainer.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAQwCYAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T10:51:42.523Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "EditGym.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditGym.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\EditGym.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditGym.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\EditGym.cshtml",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAuwCMAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T10:51:10.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "CreateService.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateService.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\CreateService.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateService.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\CreateService.cshtml",
-              "ViewState": "AgIAACIAAAAAAAAAAAAuwDsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T10:26:29.178Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ServiceList.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\ServiceList.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\ServiceList.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\ServiceList.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\ServiceList.cshtml",
-              "ViewState": "AgIAACYAAAAAAAAAAAAUwD0AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T10:26:04.992Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CreateTrainer.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateTrainer.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\CreateTrainer.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateTrainer.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\CreateTrainer.cshtml",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAIwCYAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T10:09:46.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "TrainerList.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\TrainerList.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\TrainerList.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\TrainerList.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\TrainerList.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T10:08:19.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAkwCYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T09:58:26.068Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "CreateGym.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateGym.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\CreateGym.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateGym.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\CreateGym.cshtml",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAYwDMAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T09:57:20.67Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "GymList.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\GymList.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\GymList.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\GymList.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\GymList.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T09:56:50.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\Index.cshtml",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\Index.cshtml",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\Index.cshtml",
-              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\Index.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAUwCYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T09:56:11.318Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAkwEwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T09:54:52.422Z",
+              "WhenOpened": "2025-12-17T16:57:51.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DbSeeder.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Data\\DbSeeder.cs",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Data\\DbSeeder.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Data\\DbSeeder.cs",
-              "RelativeToolTip": "FitnessCenterManagement\\Data\\DbSeeder.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
+              "Title": "AIRequestViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\ViewModels\\AIRequestViewModel.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\ViewModels\\AIRequestViewModel.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\ViewModels\\AIRequestViewModel.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Models\\ViewModels\\AIRequestViewModel.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAmwBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T09:49:34.036Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-17T16:56:14.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Reports.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\Reports.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\Reports.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\Reports.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\Reports.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAmwGgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T16:38:02.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ReportsApiController.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\ReportsApiController.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\ReportsApiController.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\ReportsApiController.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\ReportsApiController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAmwC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:32:31.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "WorkHours.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Trainer\\WorkHours.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Trainer\\WorkHours.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Trainer\\WorkHours.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Trainer\\WorkHours.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAADwv2AAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T16:06:12.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "20251217160415_AddWorkHours.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251217160415_AddWorkHours.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Migrations\\20251217160415_AddWorkHours.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251217160415_AddWorkHours.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Migrations\\20251217160415_AddWorkHours.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:04:16.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TrainerWorkHour.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\TrainerWorkHour.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\TrainerWorkHour.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\TrainerWorkHour.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Models\\TrainerWorkHour.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:03:04.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Account\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Account\\Profile.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T15:35:44.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAAAMIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T15:32:36.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserProfileViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\UserProfileViewModel.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\UserProfileViewModel.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\UserProfileViewModel.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Models\\UserProfileViewModel.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T15:31:12.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EditUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditUser.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\EditUser.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditUser.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\EditUser.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T15:10:08.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UserList.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\UserList.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\UserList.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\UserList.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\UserList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T15:09:03.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UserViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\UserViewModel.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\UserViewModel.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\UserViewModel.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Models\\UserViewModel.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T15:01:43.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Trainer\\Index.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Trainer\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Trainer\\Index.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Trainer\\Index.cshtml",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T13:37:26.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TrainerController.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\TrainerController.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\TrainerController.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\TrainerController.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\TrainerController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAmwIMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T13:32:57.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "20251207124053_AddEmailToTrainer.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Migrations\\20251207124053_AddEmailToTrainer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T12:40:53.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwEAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T12:07:19.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T12:05:30.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "20251207115545_AddGymToAppointment.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Migrations\\20251207115545_AddGymToAppointment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T11:55:45.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Appointment\\Index.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Appointment\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Appointment\\Index.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Appointment\\Index.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwC8AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T11:47:10.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Appointment\\Create.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Appointment\\Create.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Appointment\\Create.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Appointment\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T11:44:47.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\AppointmentController.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\AppointmentController.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAADwv60AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T11:42:19.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "EditService.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditService.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\EditService.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditService.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\EditService.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwCIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T10:52:08.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "EditTrainer.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditTrainer.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\EditTrainer.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditTrainer.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\EditTrainer.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAQwCYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T10:51:42.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "EditGym.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditGym.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\EditGym.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\EditGym.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\EditGym.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAuwCMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T10:51:10.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CreateService.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateService.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\CreateService.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateService.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\CreateService.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAAAuwDsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T10:26:29.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ServiceList.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\ServiceList.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\ServiceList.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\ServiceList.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\ServiceList.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAUwD0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T10:26:04.992Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 24,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Program.cs",
-              "RelativeDocumentMoniker": "FitnessCenterManagement\\Program.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Program.cs",
-              "RelativeToolTip": "FitnessCenterManagement\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T13:25:30.268Z",
-              "EditorCaption": ""
+              "Title": "CreateTrainer.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateTrainer.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\CreateTrainer.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateTrainer.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\CreateTrainer.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAIwCYAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T10:09:46.152Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
+              "Title": "TrainerList.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\TrainerList.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\TrainerList.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\TrainerList.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\TrainerList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T10:08:19.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAswDkAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T09:58:26.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "CreateGym.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateGym.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\CreateGym.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\CreateGym.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\CreateGym.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAYwDMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T09:57:20.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "GymList.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\GymList.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\GymList.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\GymList.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\GymList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T09:56:50.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "FitnessCenterManagement\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAADwvzoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-07T09:56:11.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAGsBAAAAAAAAAAAmwHkBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T09:54:52.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "DbSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Data\\DbSeeder.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Data\\DbSeeder.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Data\\DbSeeder.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Data\\DbSeeder.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T09:49:34.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Program.cs",
+              "RelativeDocumentMoniker": "FitnessCenterManagement\\Program.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Program.cs",
+              "RelativeToolTip": "FitnessCenterManagement\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T13:25:30.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\appsettings.json",
               "RelativeDocumentMoniker": "FitnessCenterManagement\\appsettings.json",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\appsettings.json",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\appsettings.json",
               "RelativeToolTip": "FitnessCenterManagement\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -445,49 +647,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 12,
               "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Data\\ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "FitnessCenterManagement\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "FitnessCenterManagement\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-05T13:18:00.303Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 21,
               "Title": "Appointment.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Appointment.cs",
               "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\Appointment.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Appointment.cs",
               "RelativeToolTip": "FitnessCenterManagement\\Models\\Appointment.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T13:16:43.327Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-05T13:16:43.327Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 25,
               "Title": "Trainer.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Trainer.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Trainer.cs",
               "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\Trainer.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Trainer.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Trainer.cs",
               "RelativeToolTip": "FitnessCenterManagement\\Models\\Trainer.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T13:16:04.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-05T13:16:04.449Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 40,
               "Title": "Service.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Service.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Service.cs",
               "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\Service.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Service.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Service.cs",
               "RelativeToolTip": "FitnessCenterManagement\\Models\\Service.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -495,11 +695,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 39,
               "Title": "Gym.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Gym.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Gym.cs",
               "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\Gym.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Gym.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\Gym.cs",
               "RelativeToolTip": "FitnessCenterManagement\\Models\\Gym.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -507,11 +707,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 38,
               "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "FitnessCenterManagement\\Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\MS\u0130\\OneDrive\\Masa\u00FCst\u00FC\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\Models\\ApplicationUser.cs",
               "RelativeToolTip": "FitnessCenterManagement\\Models\\ApplicationUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

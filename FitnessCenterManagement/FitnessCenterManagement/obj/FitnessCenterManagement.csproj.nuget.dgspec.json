@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\FitnessCenterManagement\\FitnessCenterManagement\\FitnessCenterManagement.csproj": {}
+    "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\FitnessCenterManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\FitnessCenterManagement\\FitnessCenterManagement\\FitnessCenterManagement.csproj": {
+    "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\FitnessCenterManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\FitnessCenterManagement\\FitnessCenterManagement\\FitnessCenterManagement.csproj",
+        "projectUniqueName": "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\FitnessCenterManagement.csproj",
         "projectName": "FitnessCenterManagement",
-        "projectPath": "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\FitnessCenterManagement\\FitnessCenterManagement\\FitnessCenterManagement.csproj",
+        "projectPath": "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\FitnessCenterManagement.csproj",
         "packagesPath": "C:\\Users\\MSİ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\FitnessCenterManagement\\FitnessCenterManagement\\obj\\",
+        "outputPath": "C:\\Users\\MSİ\\OneDrive\\Masaüstü\\web programlamaproje\\FitnessCenterManagement\\FitnessCenterManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -63,6 +63,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.10, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

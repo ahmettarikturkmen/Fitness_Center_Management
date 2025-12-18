@@ -1,0 +1,54 @@
+﻿@model FitnessCenterManagement.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "Kullanıcı Düzenle";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">Kullanıcı Bilgilerini Düzenle</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="EditUser" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label">Ad Soyad</label>
+                            <input asp-for="FullName" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">E-Posta</label>
+                            <input asp-for="Email" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="BirthDate" class="form-label">Doğum Tarihi</label>
+                            <input asp-for="BirthDate" class="form-control" />
+                        </div>
+
+                        <div class="mb-3 p-3 bg-light border rounded">
+                            <label class="form-label fw-bold text-primary">Kullanıcı Yetkisi (Rol)</label>
+                            <select asp-for="SelectedRole" class="form-select">
+                                <option value="">Rol Seçiniz</option>
+                                @foreach (var role in ViewBag.Roles as List<string>)
+                                {
+                                    <option value="@role">@role</option>
+                                }
+                            </select>
+                            <small class="text-muted">Dikkat: "Trainer" seçerseniz bu kişi Eğitmen Paneline erişebilir.</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Değişiklikleri Kaydet</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="UserList" class="btn btn-link text-secondary">Vazgeç ve Listeye Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

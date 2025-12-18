@@ -40,13 +40,24 @@
                     </ul>
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
-                    {
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" style="color: #6f42c1;" asp-controller="AI" asp-action="Index">
+                                    🤖 AI KOÇ
+                                </a>
+                            </li>
                         <li class="nav-item">
                             <span class="nav-link text-dark fw-bold">Merhaba, @User.Identity.Name</span>
                         </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-primary fw-bold" asp-controller="Account" asp-action="Profile">
+                                    👤 PROFİLİM
+                                </a>
+                            </li>
                          <li class="nav-item">
                                <a class="nav-link text-dark fw-bold" asp-controller="Appointment" asp-action="Index">RANDEVULARIM</a>
                          </li>
+
                         <li class="nav-item">
                             <form class="form-inline" asp-controller="Account" asp-action="Logout" method="post">
                                 <button type="submit" class="nav-link btn btn-link text-danger" style="text-decoration:none; border:none;">Çıkış Yap</button>

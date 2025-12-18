@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Detaylı Raporlar";
+}
+
+<div class="container mt-4">
+    <h2>📊 Randevu Raporları (REST API)</h2>
+    <hr />
+
+    <div class="card p-4 bg-light shadow-sm mb-4">
+        <div class="row align-items-end">
+            <div class="col-md-4">
+                <label class="form-label fw-bold">Başlangıç Tarihi</label>
+                <input type="date" id="startDate" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label fw-bold">Bitiş Tarihi</label>
+                <input type="date" id="endDate" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <button onclick="getReport()" class="btn btn-primary w-100">
+                    🔍 Raporu Getir
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+            Sonuçlar
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped mb-0" id="reportTable">
+                <thead>
+                    <tr>
+                        <th>Tarih</th>
+                        <th>Üye</th>
+                        <th>Eğitmen</th>
+                        <th>Hizmet</th>
+                        <th>Durum</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="5" class="text-center text-muted p-3">Lütfen tarih seçip butona basınız.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function getReport() {
+        // 1. Tarihleri al
+        var start = document.getElementById("startDate").value;
+        var end = document.getElementById("endDate").value;
+
+        if (!start || !end) {
+            alert("Lütfen iki tarih de seçiniz.");
+            return;
+        }
+
+        // Tabloyu temizle ve "Yükleniyor..." yaz
+        var tbody = document.getElementById("tableBody");
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center">Veriler Yükleniyor...</td></tr>';
+
+        try {
+            // 2. API'ye İstek At (Fetch)
+            // REST API Çağrısı burada yapılıyor
+            var url = `/api/ReportsApi/GetAppointments?startDate=${start}&endDate=${end}`;
+            var response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("API Hatası");
+            }
+
+            // 3. Gelen JSON verisini al
+            var data = await response.json();
+
+            // 4. Tabloyu doldur
+            tbody.innerHTML = ""; // Temizle
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center text-warning">Bu tarih aralığında kayıt bulunamadı.</td></tr>';
+                return;
+            }
+
+            // Döngü ile satırları ekle
+            data.forEach(item => {
+                var row = `<tr>
+                                <td>${item.tarih}</td>
+                                <td>${item.uyeAdi}</td>
+                                <td>${item.hocaAdi}</td>
+                                <td><span class="badge bg-info text-dark">${item.hizmet}</span></td>
+                                <td>${item.durum}</td>
+                           </tr>`;
+                tbody.innerHTML += row;
+            });
+
+        } catch (error) {
+            console.error(error);
+            tbody.innerHTML = '<tr><td colspan="5" class="text-center text-danger">Veri çekilirken hata oluştu.</td></tr>';
+        }
+    }
+</script>

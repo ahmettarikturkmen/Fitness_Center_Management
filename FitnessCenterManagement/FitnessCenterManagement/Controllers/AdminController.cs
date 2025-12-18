@@ -1,6 +1,7 @@
 ﻿using FitnessCenterManagement.Data;
 using FitnessCenterManagement.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,10 +12,16 @@ namespace FitnessCenterManagement.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AdminController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext context,
+                               UserManager<ApplicationUser> userManager,
+                               RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         // 1. Admin Ana Sayfası (Dashboard)
@@ -251,6 +258,123 @@ namespace FitnessCenterManagement.Controllers
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(ServiceList));
+        }
+
+        // ==========================================
+        // KULLANICI YÖNETİMİ (LİSTELEME & DÜZENLEME)
+        // ==========================================
+
+        // 1. Kullanıcı Listesi
+        public async Task<IActionResult> UserList()
+        {
+            var users = _userManager.Users.ToList();
+            var userViewModels = new List<UserViewModel>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                userViewModels.Add(new UserViewModel
+                {
+                    Id = user.Id,
+                    FullName = user.FullName,
+                    Email = user.Email,
+                    BirthDate = user.BirthDate,
+                    SelectedRole = roles.FirstOrDefault() ?? "Rol Yok" // İlk rolü al
+                });
+            }
+
+            return View(userViewModels);
+        }
+
+        // 2. Kullanıcı Düzenle (GET)
+        [HttpGet]
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var model = new UserViewModel
+            {
+                Id = user.Id,
+                FullName = user.FullName,
+                Email = user.Email,
+                BirthDate = user.BirthDate,
+                SelectedRole = roles.FirstOrDefault()
+            };
+
+            // Sistemdeki tüm rolleri ViewBag ile gönderelim (Dropdown için)
+            ViewBag.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
+
+            return View(model);
+        }
+
+        // 3. Kullanıcı Düzenle (POST)
+        [HttpPost]
+        public async Task<IActionResult> EditUser(UserViewModel model)
+        {
+            var user = await _userManager.FindByIdAsync(model.Id);
+            if (user == null) return NotFound();
+
+            // 1. Temel Bilgileri Güncelle
+            user.FullName = model.FullName;
+            user.Email = model.Email;
+            user.UserName = model.Email; // Kullanıcı adı genelde email ile aynıdır
+            if (model.BirthDate.HasValue)
+            {
+                user.BirthDate = model.BirthDate.Value;
+            }
+
+            // Veritabanını güncelle
+            var result = await _userManager.UpdateAsync(user);
+
+            if (result.Succeeded)
+            {
+                // 2. Rol Güncelleme İşlemi
+                var currentRoles = await _userManager.GetRolesAsync(user);
+                var currentRole = currentRoles.FirstOrDefault();
+
+                // Eğer seçilen rol, mevcut rolden farklıysa değiştir
+                if (model.SelectedRole != currentRole)
+                {
+                    // Eski rolleri sil
+                    if (currentRoles.Any())
+                    {
+                        await _userManager.RemoveFromRolesAsync(user, currentRoles);
+                    }
+
+                    // Yeni rolü ekle
+                    if (!string.IsNullOrEmpty(model.SelectedRole))
+                    {
+                        await _userManager.AddToRoleAsync(user, model.SelectedRole);
+                    }
+                }
+
+                return RedirectToAction("UserList");
+            }
+
+            // Hata varsa rolleri tekrar yükle ve sayfayı göster
+            ViewBag.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
+            return View(model);
+        }
+
+        // 4. Kullanıcı Sil (Opsiyonel ama gerekli olabilir)
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                await _userManager.DeleteAsync(user);
+            }
+            return RedirectToAction("UserList");
+        }
+
+        // RAPORLAMA SAYFASI (VIEW)
+        public IActionResult Reports()
+        {
+            return View();
         }
 
     }

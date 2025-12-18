@@ -219,6 +219,33 @@ namespace FitnessCenterManagement.Migrations
                     b.ToTable("Trainers");
                 });
 
+            modelBuilder.Entity("FitnessCenterManagement.Models.TrainerWorkHour", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DayOfWeek")
+                        .HasColumnType("integer");
+
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("interval");
+
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("interval");
+
+                    b.Property<int>("TrainerId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrainerId");
+
+                    b.ToTable("TrainerWorkHours");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -406,6 +433,17 @@ namespace FitnessCenterManagement.Migrations
                         .IsRequired();
 
                     b.Navigation("Gym");
+                });
+
+            modelBuilder.Entity("FitnessCenterManagement.Models.TrainerWorkHour", b =>
+                {
+                    b.HasOne("FitnessCenterManagement.Models.Trainer", "Trainer")
+                        .WithMany()
+                        .HasForeignKey("TrainerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trainer");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
