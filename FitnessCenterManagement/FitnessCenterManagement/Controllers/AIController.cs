@@ -10,7 +10,7 @@ namespace FitnessCenterManagement.Controllers
     public class AIController : Controller
     {
         // Google Gemini API Ayarları
-        private readonly string _apiKey = "AIzaSyACMbMuAvsigy4ezUZ1cZ49Pj2Y74MIPww"; // <-- SENİN API KEY'İN BURAYA!
+        private readonly string _apiKey = "API"; // <-- SENİN API KEY'İN BURAYA!
         private readonly string _apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
         [HttpGet]
