@@ -1,44 +1,136 @@
 @model FitnessCenterManagement.Models.ViewModels.LoginViewModel
 
 @{
-    ViewData["Title"] = "Giriþ Yap";
+    Layout = null; /* Bu sayfa ana temadan baðýmsýz çalýþsýn */
 }
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white text-center">
-                    <h4>Üye Giriþi</h4>
-                </div>
-                <div class="card-body">
-                    <form asp-action="Login" method="post">
-                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Üye Giriþ - Fitness Center</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
-                        <div class="mb-3">
-                            <label asp-for="Email" class="form-label"></label>
-                            <input asp-for="Email" class="form-control" placeholder="Email adresiniz" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80", /* Senin tasarýmýndaki yeþil renk */
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full min-h-screen grow flex-col">
+            <div class="flex flex-1 items-stretch">
+                <div class="flex w-full flex-col lg:flex-row">
+
+                    <div class="relative hidden w-full flex-col items-center justify-center bg-zinc-900 lg:flex lg:w-1/2">
+                        <div class="absolute inset-0 z-0 h-full w-full bg-cover bg-center"
+                             style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1470&auto=format&fit=crop');">
+                            <div class="absolute inset-0 h-full w-full bg-black/60"></div>
                         </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Password" class="form-label"></label>
-                            <input asp-for="Password" class="form-control" placeholder="Þifreniz" />
-                            <span asp-validation-for="Password" class="text-danger"></span>
+                        <div class="relative z-10 flex flex-col items-center text-center text-white">
+                            <span class="material-symbols-outlined text-primary mb-4 text-6xl">fitness_center</span>
+                            <h1 class="text-white tracking-tight text-4xl font-bold leading-tight">Potansiyelini Ortaya Çýkar.</h1>
+                            <p class="mt-2 max-w-sm text-lg text-white/70">Güç, dayanýklýlýk ve kararlýlýk seni bekliyor.</p>
                         </div>
+                    </div>
 
-                        <div class="mb-3 form-check">
-                            <input asp-for="RememberMe" class="form-check-input" />
-                            <label class="form-check-label">Beni Hatýrla</label>
+                    <div class="flex w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark p-6 lg:w-1/2">
+                        <div class="layout-content-container flex w-full max-w-md flex-col">
+
+                            <div class="flex px-4 py-3">
+                                <div class="flex h-12 flex-1 items-center justify-center rounded-xl bg-background-light dark:bg-[#1c392a] p-1.5">
+                                    <label class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal bg-primary text-black">
+                                        <span class="truncate">Giriþ Yap</span>
+                                        <input checked class="invisible w-0" type="radio" />
+                                    </label>
+                                    <a href="/Account/Register" class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal text-slate-500 dark:text-slate-400 hover:bg-white/5">
+                                        <span class="truncate">Kayýt Ol</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <h2 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight px-4 text-left pb-1 pt-6">Tekrar Hoþ Geldin!</h2>
+                            <p class="px-4 text-slate-600 dark:text-slate-400">Hesabýna giriþ yaparak devam et.</p>
+
+                            <form asp-action="Login" method="post" class="mt-6 flex flex-col gap-4">
+
+                                <div class="px-4 text-red-500 text-sm font-medium" asp-validation-summary="ModelOnly"></div>
+
+                                <div class="flex flex-wrap items-end gap-4 px-4">
+                                    <label class="flex w-full flex-col">
+                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">E-posta Adresi</p>
+                                        <div class="relative flex w-full items-center">
+                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">mail</span>
+                                            <input asp-for="Email"
+                                                   class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500"
+                                                   placeholder="ornek@eposta.com" />
+                                        </div>
+                                        <span asp-validation-for="Email" class="text-red-500 text-xs mt-1"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex flex-wrap items-end gap-4 px-4">
+                                    <label class="flex w-full flex-col">
+                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Þifre</p>
+                                        <div class="relative flex w-full items-center">
+                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">lock</span>
+                                            <input asp-for="Password" type="password" id="passwordInput"
+                                                   class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500"
+                                                   placeholder="••••••••" />
+                                            <button type="button" onclick="togglePassword()" class="absolute right-4 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300">
+                                                <span class="material-symbols-outlined" id="eyeIcon">visibility_off</span>
+                                            </button>
+                                        </div>
+                                        <span asp-validation-for="Password" class="text-red-500 text-xs mt-1"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-center p-4 mt-4">
+                                    <button type="submit" class="flex h-12 w-full flex-1 items-center justify-center rounded-xl bg-primary px-6 text-base font-bold text-black shadow-md transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+                                        Giriþ Yap
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-
-                        <button type="submit" class="btn btn-primary w-100">Giriþ Yap</button>
-                    </form>
-                </div>
-                <div class="card-footer text-center">
-                    <p class="mb-0">Hesabýn yok mu? <a asp-action="Register">Hemen Kayýt Ol</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script>
+        function togglePassword() {
+            var input = document.getElementById("passwordInput");
+            var icon = document.getElementById("eyeIcon");
+            if (input.type === "password") {
+                input.type = "text";
+                icon.innerText = "visibility";
+            } else {
+                input.type = "password";
+                icon.innerText = "visibility_off";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -6,6 +6,7 @@ namespace FitnessCenterManagement.Models
     {
         // --- GÖRÜNTÜLENECEK BİLGİLER ---
         [Display(Name = "Ad Soyad")]
+        [Required(ErrorMessage = "Ad Soyad boş bırakılamaz.")]
         public string FullName { get; set; }
 
         [Display(Name = "E-Posta")]
@@ -16,21 +17,16 @@ namespace FitnessCenterManagement.Models
 
         // --- ŞİFRE DEĞİŞTİRME ALANLARI ---
 
-        // Güvenlik gereği eski şifreyi de istemeliyiz
-        [Required(ErrorMessage = "Mevcut şifrenizi girmelisiniz.")]
-        [DataType(DataType.Password)]
-        [Display(Name = "Mevcut Şifre")]
-        public string CurrentPassword { get; set; }
+        // NOT: View sayfasındaki tasarıma uyması için isimleri değiştirdik.
+        // Ayrıca [Required] kaldırdık ki sadece isim güncellerken şifre sormasın.
 
-        [Required(ErrorMessage = "Yeni şifre zorunludur.")]
         [DataType(DataType.Password)]
         [Display(Name = "Yeni Şifre")]
-        public string NewPassword { get; set; }
+        public string? NewPassword { get; set; } // Soru işareti (?) boş olabilir demek
 
-        [Required(ErrorMessage = "Yeni şifreyi tekrar giriniz.")]
         [DataType(DataType.Password)]
         [Display(Name = "Yeni Şifre (Tekrar)")]
         [Compare("NewPassword", ErrorMessage = "Şifreler eşleşmiyor!")]
-        public string ConfirmNewPassword { get; set; }
+        public string? ConfirmPassword { get; set; } // İsmi düzelttik: ConfirmNewPassword -> ConfirmPassword
     }
 }

@@ -1,58 +1,149 @@
 @model FitnessCenterManagement.Models.ViewModels.RegisterViewModel
 
 @{
-    ViewData["Title"] = "Kayýt Ol";
+    Layout = null; /* Ana temadan baðýmsýz */
 }
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-header bg-success text-white text-center">
-                    <h4>Yeni Üye Kaydý</h4>
-                </div>
-                <div class="card-body">
-                    <form asp-action="Register" method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Üye Kayýt - Fitness Center</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
-                        <div class="mb-3">
-                            <label asp-for="FullName" class="form-label"></label>
-                            <input asp-for="FullName" class="form-control" placeholder="Adýnýz Soyadýnýz" />
-                            <span asp-validation-for="FullName" class="text-danger"></span>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full min-h-screen grow flex-col">
+            <div class="flex flex-1 items-stretch">
+                <div class="flex w-full flex-col lg:flex-row">
+
+                    <div class="relative hidden w-full flex-col items-center justify-center bg-zinc-900 lg:flex lg:w-1/2">
+                        <div class="absolute inset-0 z-0 h-full w-full bg-cover bg-center"
+                             style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop');">
+                            <div class="absolute inset-0 h-full w-full bg-black/60"></div>
                         </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Email" class="form-label"></label>
-                            <input asp-for="Email" class="form-control" placeholder="ornek@email.com" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
+                        <div class="relative z-10 flex flex-col items-center text-center text-white">
+                            <span class="material-symbols-outlined text-primary mb-4 text-6xl">fitness_center</span>
+                            <h1 class="text-white tracking-tight text-4xl font-bold leading-tight">Harekete Geç.</h1>
+                            <p class="mt-2 max-w-sm text-lg text-white/70">Bugün atacaðýn adým, yarýnki gücün olacak.</p>
                         </div>
+                    </div>
 
-                        <div class="mb-3">
-                            <label asp-for="BirthDate" class="form-label"></label>
-                            <input asp-for="BirthDate" class="form-control" />
-                            <span asp-validation-for="BirthDate" class="text-danger"></span>
-                        </div>
+                    <div class="flex w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark p-6 lg:w-1/2">
+                        <div class="layout-content-container flex w-full max-w-md flex-col">
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="Password" class="form-label"></label>
-                                <input asp-for="Password" class="form-control" placeholder="******" />
-                                <span asp-validation-for="Password" class="text-danger"></span>
+                            <div class="flex px-4 py-3">
+                                <div class="flex h-12 flex-1 items-center justify-center rounded-xl bg-background-light dark:bg-[#1c392a] p-1.5">
+                                    <a href="/Account/Login" class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal text-slate-500 dark:text-slate-400 hover:bg-white/5">
+                                        <span class="truncate">Giriþ Yap</span>
+                                    </a>
+                                    <label class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal bg-primary text-black">
+                                        <span class="truncate">Kayýt Ol</span>
+                                        <input checked class="invisible w-0" type="radio" />
+                                    </label>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="ConfirmPassword" class="form-label"></label>
-                                <input asp-for="ConfirmPassword" class="form-control" placeholder="******" />
-                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                            </div>
-                        </div>
 
-                        <button type="submit" class="btn btn-success w-100">Kayýt Ol</button>
-                    </form>
-                </div>
-                <div class="card-footer text-center">
-                    <p class="mb-0">Zaten üye misin? <a asp-action="Login">Giriþ Yap</a></p>
+                            <h2 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight px-4 text-left pb-1 pt-6">Aramýza Katýl!</h2>
+                            <p class="px-4 text-slate-600 dark:text-slate-400">Bilgilerini girerek hemen üye ol.</p>
+
+                            <form asp-action="Register" method="post" class="mt-6 flex flex-col gap-4">
+
+                                <div class="px-4 text-red-500 text-sm font-medium" asp-validation-summary="ModelOnly"></div>
+
+                                <div class="flex flex-wrap items-end gap-4 px-4">
+                                    <label class="flex w-full flex-col">
+                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Ad Soyad</p>
+                                        <div class="relative flex w-full items-center">
+                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">person</span>
+                                            <input asp-for="FullName" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" placeholder="Adýnýz Soyadýnýz" />
+                                        </div>
+                                        <span asp-validation-for="FullName" class="text-red-500 text-xs mt-1"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex flex-wrap items-end gap-4 px-4">
+                                    <label class="flex w-full flex-col">
+                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Doðum Tarihi</p>
+                                        <div class="relative flex w-full items-center">
+                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">calendar_month</span>
+                                            <input asp-for="BirthDate" type="date" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" />
+                                        </div>
+                                        <span asp-validation-for="BirthDate" class="text-red-500 text-xs mt-1"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex flex-wrap items-end gap-4 px-4">
+                                    <label class="flex w-full flex-col">
+                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">E-posta Adresi</p>
+                                        <div class="relative flex w-full items-center">
+                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">mail</span>
+                                            <input asp-for="Email" type="email" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" placeholder="ornek@eposta.com" />
+                                        </div>
+                                        <span asp-validation-for="Email" class="text-red-500 text-xs mt-1"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex flex-wrap items-end gap-4 px-4">
+                                    <label class="flex w-full flex-col">
+                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Þifre</p>
+                                        <div class="relative flex w-full items-center">
+                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">lock</span>
+                                            <input asp-for="Password" type="password" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" placeholder="••••••••" />
+                                        </div>
+                                        <span asp-validation-for="Password" class="text-red-500 text-xs mt-1"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex flex-wrap items-end gap-4 px-4">
+                                    <label class="flex w-full flex-col">
+                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Þifre (Tekrar)</p>
+                                        <div class="relative flex w-full items-center">
+                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">lock_reset</span>
+                                            <input asp-for="ConfirmPassword" type="password" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" placeholder="••••••••" />
+                                        </div>
+                                        <span asp-validation-for="ConfirmPassword" class="text-red-500 text-xs mt-1"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-center p-4 mt-2">
+                                    <button type="submit" class="flex h-12 w-full flex-1 items-center justify-center rounded-xl bg-primary px-6 text-base font-bold text-black shadow-md transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+                                        Kayýt Ol
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
+</html>

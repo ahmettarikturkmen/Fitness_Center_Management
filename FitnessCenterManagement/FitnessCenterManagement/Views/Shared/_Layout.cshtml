@@ -7,72 +7,177 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FitnessCenterManagement.styles.css" asp-append-version="true" />
+    <style>
+        /* Navbar'ın Kendisi */
+        .navbar-modern {
+            background-color: rgba(28, 57, 42, 0.95) !important; /* Yarı saydam koyu yeşil */
+            backdrop-filter: blur(10px); /* Buzlu cam efekti */
+            border-bottom: 1px solid rgba(19, 236, 128, 0.1); /* İnce neon çizgi */
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        body {
+            padding-top: 80px; /* Navbar yüksekliği kadar boşluk bırak */
+        }
+
+        /* Logo */
+        .brand-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            color: #13ec80; /* Neon Yeşil */
+            font-size: 2rem;
+        }
+
+        /* Linkler */
+        .nav-link-modern {
+            color: #cbd5e0 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+            .nav-link-modern:hover, .nav-link-modern.active {
+                color: #13ec80 !important;
+            }
+
+            /* Hover efekti (Alt çizgi animasyonu) */
+            .nav-link-modern::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: #13ec80;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link-modern:hover::after {
+                width: 100%;
+            }
+
+        /* Giriş Yap / Kayıt Ol Butonları */
+        .btn-nav-login {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+            .btn-nav-login:hover {
+                color: #13ec80;
+            }
+
+        .btn-nav-register {
+            background-color: #13ec80;
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(19, 236, 128, 0.2);
+        }
+
+            .btn-nav-register:hover {
+                background-color: #0fb863;
+                box-shadow: 0 0 20px rgba(19, 236, 128, 0.5);
+                transform: translateY(-2px);
+                color: black;
+            }
+
+        /* Kullanıcı Profili Dropdown */
+        .user-welcome {
+            color: #13ec80;
+            font-weight: 600;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FitnessCenterManagement</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-modern fixed-top">
+            <div class="container">
+                <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="material-symbols-outlined brand-icon">fitness_center</span>
+                    FitnessCenter
+                </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                    <ul class="navbar-nav flex-grow-1 justify-content-center">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link nav-link-modern" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-danger fw-bold" asp-controller="Admin" asp-action="Index">YÖNETİM PANELİ</a>
-                            </li>
-                        }
-                        @if (User.IsInRole("Trainer"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-primary fw-bold" asp-controller="Trainer" asp-action="Index">EĞİTMEN PANELİ</a>
-                            </li>
-                        }
-                    </ul>
-                    <ul class="navbar-nav">
+
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link fw-bold" style="color: #6f42c1;" asp-controller="AI" asp-action="Index">
-                                    🤖 AI KOÇ
-                                </a>
+                                <a class="nav-link nav-link-modern" asp-controller="Appointment" asp-action="Index">Randevularım</a>
                             </li>
-                        <li class="nav-item">
-                            <span class="nav-link text-dark fw-bold">Merhaba, @User.Identity.Name</span>
-                        </li>
                             <li class="nav-item">
-                                <a class="nav-link text-primary fw-bold" asp-controller="Account" asp-action="Profile">
-                                    👤 PROFİLİM
+                                <a class="nav-link nav-link-modern" asp-controller="AI" asp-action="Index">🤖 AI Koç</a>
+                            </li>
+
+                            // Eğer Admisse Raporları görsün
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-modern" asp-controller="Admin" asp-action="Index">Yönetim Paneli</a>
+                                </li>
+                            }
+                            // Eğer Eğitmense Panelini görsün
+                            if (User.IsInRole("Trainer"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-modern" asp-controller="Trainer" asp-action="Index">Eğitmen Paneli</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+
+                    <ul class="navbar-nav align-items-center">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item me-3">
+                                <a class="nav-link nav-link-modern user-welcome" asp-controller="Account" asp-action="Profile">
+                                    @User.Identity.Name
                                 </a>
                             </li>
-                         <li class="nav-item">
-                               <a class="nav-link text-dark fw-bold" asp-controller="Appointment" asp-action="Index">RANDEVULARIM</a>
-                         </li>
-
-                        <li class="nav-item">
-                            <form class="form-inline" asp-controller="Account" asp-action="Logout" method="post">
-                                <button type="submit" class="nav-link btn btn-link text-danger" style="text-decoration:none; border:none;">Çıkış Yap</button>
-                            </form>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark btn btn-outline-primary ms-2" asp-controller="Account" asp-action="Login">Giriş Yap</a>
-                        </li>
-                    }
+                            <li class="nav-item">
+                                <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3">Çıkış</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="btn-nav-login" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn-nav-register" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

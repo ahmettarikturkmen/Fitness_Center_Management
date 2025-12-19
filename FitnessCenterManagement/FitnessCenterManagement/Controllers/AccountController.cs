@@ -123,33 +123,42 @@ namespace FitnessCenterManagement.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login");
 
-            // Model validasyonu (Sadece şifre alanlarını kontrol etsek yeterli)
-            if (!string.IsNullOrEmpty(model.CurrentPassword) &&
-                !string.IsNullOrEmpty(model.NewPassword) &&
-                !string.IsNullOrEmpty(model.ConfirmNewPassword))
+            // Sadece şifre değiştirdiğimiz için Ad ve Email kontrollerini devre dışı bırakıyoruz
+            ModelState.Remove("FullName");
+            ModelState.Remove("Email");
+
+            if (string.IsNullOrEmpty(model.NewPassword))
             {
-                // Identity kütüphanesinin şifre değiştirme fonksiyonu
-                var result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+                ModelState.AddModelError("NewPassword", "Lütfen yeni şifrenizi girin.");
+            }
 
-                if (result.Succeeded)
+            if (ModelState.IsValid)
+            {
+                // ESKİ KODDA: ChangePasswordAsync vardı (Eski şifre istiyordu).
+                // YENİ KODDA: RemovePassword + AddPassword yapıyoruz (Eski şifreye gerek yok).
+
+                var removeResult = await _userManager.RemovePasswordAsync(user);
+                if (removeResult.Succeeded)
                 {
-                    // Şifre değişince oturumun düşmemesi için tazeleyelim
-                    await _signInManager.RefreshSignInAsync(user);
-                    TempData["SuccessMessage"] = "Şifreniz başarıyla güncellendi!";
-
-                    // Başarılı olursa sayfayı yeniden yükle (Mesajı görsün)
-                    return RedirectToAction("Profile");
+                    var addResult = await _userManager.AddPasswordAsync(user, model.NewPassword);
+                    if (addResult.Succeeded)
+                    {
+                        await _signInManager.RefreshSignInAsync(user);
+                        TempData["Success"] = "Şifreniz başarıyla değiştirildi.";
+                        return RedirectToAction("Profile");
+                    }
+                    else
+                    {
+                        foreach (var error in addResult.Errors) ModelState.AddModelError("", error.Description);
+                    }
                 }
                 else
                 {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
+                    foreach (var error in removeResult.Errors) ModelState.AddModelError("", error.Description);
                 }
             }
 
-            // Hata varsa bilgileri tekrar doldurup sayfayı geri gönder
+            // Hata varsa formu tekrar doldur
             model.FullName = user.FullName;
             model.Email = user.Email;
             model.BirthDate = user.BirthDate;
@@ -160,38 +169,32 @@ namespace FitnessCenterManagement.Controllers
         // ==========================================
         // YENİ EKLENEN: KİŞİSEL BİLGİ GÜNCELLEME
         // ==========================================
-        [HttpPost]
         [Authorize]
-        public async Task<IActionResult> UpdateInfo(UserProfileViewModel model)
+        [HttpPost]
+        public async Task<IActionResult> UpdateProfile(UserProfileViewModel model)
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login");
 
-            // Şifre alanları boş geleceği için Validation hatası verebilir.
-            // Bu formda şifre değiştirmiyoruz, o yüzden o hataları temizliyoruz.
-            ModelState.Remove("CurrentPassword");
+            // Profil güncellerken şifre alanlarını kontrol etme (Hata vermemesi için siliyoruz)
             ModelState.Remove("NewPassword");
-            ModelState.Remove("ConfirmNewPassword");
+            ModelState.Remove("ConfirmPassword"); // Senin kodda ConfirmNewPassword yazıyordu, doğrusu bu.
 
             if (ModelState.IsValid)
             {
-                // Bilgileri güncelle
                 user.FullName = model.FullName;
+                // Eğer tarih girilmişse güncelle, girilmemişse (null ise) dokunma
                 if (model.BirthDate.HasValue)
                 {
                     user.BirthDate = model.BirthDate.Value;
                 }
 
-                // Veritabanına kaydet
                 var result = await _userManager.UpdateAsync(user);
 
                 if (result.Succeeded)
                 {
-                    // İsim değiştiği için üst menüdeki "Merhaba [İsim]" yazısının da 
-                    // hemen güncellenmesi için oturumu tazelememiz lazım.
                     await _signInManager.RefreshSignInAsync(user);
-
-                    TempData["SuccessMessage"] = "Profil bilgileriniz güncellendi.";
+                    TempData["Success"] = "Profil bilgileriniz güncellendi.";
                     return RedirectToAction("Profile");
                 }
 
@@ -201,7 +204,6 @@ namespace FitnessCenterManagement.Controllers
                 }
             }
 
-            // Hata varsa sayfayı tekrar göster (Email kaybolmasın diye tekrar dolduruyoruz)
             model.Email = user.Email;
             return View("Profile", model);
         }
