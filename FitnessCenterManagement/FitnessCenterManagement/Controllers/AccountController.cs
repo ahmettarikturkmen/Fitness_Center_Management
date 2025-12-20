@@ -1,6 +1,6 @@
 ﻿using FitnessCenterManagement.Models;
 using FitnessCenterManagement.Models.ViewModels; // Login/Register ViewModel'leri burada
-using FitnessCenterManagement.Models; // UserProfileViewModel burada olabilir (Namespace kontrolü yap)
+using FitnessCenterManagement.Models; 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,9 +18,6 @@ namespace FitnessCenterManagement.Controllers
             _signInManager = signInManager;
         }
 
-        // ==========================================
-        // MEVCUT KODLARIN (LOGIN / REGISTER / LOGOUT)
-        // ==========================================
 
         [HttpGet]
         public IActionResult Login()
@@ -94,9 +91,6 @@ namespace FitnessCenterManagement.Controllers
             return View();
         }
 
-        // ==========================================
-        // !!! YENİ EKLENEN KISIMLAR (PROFİL & ŞİFRE) !!!
-        // ==========================================
 
         // [Authorize]: Sadece giriş yapmış kullanıcılar burayı görebilir
         [Authorize]
@@ -134,8 +128,7 @@ namespace FitnessCenterManagement.Controllers
 
             if (ModelState.IsValid)
             {
-                // ESKİ KODDA: ChangePasswordAsync vardı (Eski şifre istiyordu).
-                // YENİ KODDA: RemovePassword + AddPassword yapıyoruz (Eski şifreye gerek yok).
+           
 
                 var removeResult = await _userManager.RemovePasswordAsync(user);
                 if (removeResult.Succeeded)
@@ -166,9 +159,6 @@ namespace FitnessCenterManagement.Controllers
             return View("Profile", model);
         }
 
-        // ==========================================
-        // YENİ EKLENEN: KİŞİSEL BİLGİ GÜNCELLEME
-        // ==========================================
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> UpdateProfile(UserProfileViewModel model)
@@ -176,14 +166,14 @@ namespace FitnessCenterManagement.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login");
 
-            // Profil güncellerken şifre alanlarını kontrol etme (Hata vermemesi için siliyoruz)
+            // Profil güncellerken şifre alanlarını kontrol etme 
             ModelState.Remove("NewPassword");
-            ModelState.Remove("ConfirmPassword"); // Senin kodda ConfirmNewPassword yazıyordu, doğrusu bu.
+            ModelState.Remove("ConfirmPassword");
 
             if (ModelState.IsValid)
             {
                 user.FullName = model.FullName;
-                // Eğer tarih girilmişse güncelle, girilmemişse (null ise) dokunma
+               
                 if (model.BirthDate.HasValue)
                 {
                     user.BirthDate = model.BirthDate.Value;

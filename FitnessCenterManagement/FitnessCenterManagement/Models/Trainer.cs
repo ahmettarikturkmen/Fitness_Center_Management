@@ -14,7 +14,7 @@ namespace FitnessCenterManagement.Models
         public string Email { get; set; }
 
         [Display(Name = "Uzmanlık Alanı")]
-        public string Specialty { get; set; } = string.Empty; // Yoga, Fitness, vb.
+        public string Specialty { get; set; } = string.Empty; 
 
         // Hangi salonda çalışıyor?
         public int GymId { get; set; }

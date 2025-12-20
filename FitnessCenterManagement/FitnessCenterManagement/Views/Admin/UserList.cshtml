@@ -4,65 +4,100 @@
     ViewData["Title"] = "Kullanıcı Yönetimi";
 }
 
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>👥 Kullanıcı Listesi</h2>
-    </div>
+<div class="container py-5">
 
-    <div class="card shadow">
-        <div class="card-body p-0">
-            <table class="table table-hover mb-0">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Ad Soyad</th>
-                        <th>E-Posta</th>
-                        <th>Rol (Yetki)</th>
-                        <th>İşlemler</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var user in Model)
-                    {
-                        <tr>
-                            <td>
-                                <strong>@user.FullName</strong> <br />
-                                <small class="text-muted">Doğum: @(user.BirthDate.HasValue? user.BirthDate.Value.ToShortDateString() : "-")</small>
-                            </td>
-                            <td>@user.Email</td>
-                            <td>
-                                @if (user.SelectedRole == "Admin")
-                                {
-                                    <span class="badge bg-danger">Yönetici</span>
-                                }
-                                else if (user.SelectedRole == "Trainer")
-                                {
-                                    <span class="badge bg-primary">Eğitmen</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-secondary">Üye</span>
-                                }
-                            </td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-sm btn-warning">Düzenle / Rol Ata</a>
-
-                                    @if (User.Identity.Name != user.Email)
-                                    {
-                                        <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" onsubmit="return confirm('Bu kullanıcıyı silmek istediğinize emin misiniz?');">
-                                            <button type="submit" class="btn btn-sm btn-danger">Sil</button>
-                                        </form>
-                                    }
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold text-white m-0">Kullanıcı Listesi</h1>
+            <p class="text-secondary m-0 small">Sistemdeki tüm üyeleri, eğitmenleri ve yöneticileri buradan yönetebilirsiniz.</p>
         </div>
     </div>
 
-    <div class="mt-3">
-        <a asp-action="Index" class="btn btn-secondary">← Panele Dön</a>
+    <div class="card border-0 shadow-lg" style="background-color: #1c2721; border: 1px solid #283930 !important;">
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle text-nowrap" style="color: white;">
+
+                    <thead style="border-bottom: 2px solid #283930;">
+                        <tr>
+                            <th class="py-3 ps-4" style="color: var(--neon-green);">AD SOYAD</th>
+                            <th class="py-3" style="color: var(--neon-green);">E-POSTA</th>
+                            <th class="py-3" style="color: var(--neon-green);">ROL (YETKİ)</th>
+                            <th class="py-3 text-end pe-4" style="color: var(--neon-green);">İŞLEMLER</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="4" class="text-center py-5 text-secondary">
+                                    <span class="material-symbols-outlined fs-1 d-block mb-3">group_off</span>
+                                    Kayıtlı kullanıcı bulunamadı.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var user in Model)
+                            {
+                                <tr style="border-bottom: 1px solid #283930;">
+                                    <td class="ps-4">
+                                        <div class="fw-bold">@user.FullName</div>
+                                        @if (user.BirthDate.HasValue)
+                                        {
+                                            <small class="text-secondary" style="font-size: 0.75rem;">
+                                                Doğum: @user.BirthDate.Value.ToShortDateString()
+                                            </small>
+                                        }
+                                        else
+                                        {
+                                            <small class="text-secondary" style="font-size: 0.75rem;">-</small>
+                                        }
+                                    </td>
+                                    <td>@user.Email</td>
+                                    <td>
+                                        @if (user.SelectedRole == "Admin")
+                                        {
+                                            <span class="badge bg-danger">Yönetici</span>
+                                        }
+                                        else if (user.SelectedRole == "Trainer")
+                                        {
+                                            <span class="badge bg-info text-dark">Eğitmen</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Üye</span>
+                                        }
+                                    </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-warning btn-sm">
+                                                Düzenle / Rol Ata
+                                            </a>
+
+                                            @if (User.Identity.Name != user.Email)
+                                            {
+                                                <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" onsubmit="return confirm('Bu kullanıcıyı silmek istediğinize emin misiniz?');" style="display:inline;">
+                                                    <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                                </form>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
+    <div class="mt-4">
+        <a asp-action="Index" class="btn btn-secondary d-inline-flex align-items-center gap-2">
+            <span class="material-symbols-outlined">arrow_back</span> Panele Dön
+        </a>
+    </div>
+
 </div>

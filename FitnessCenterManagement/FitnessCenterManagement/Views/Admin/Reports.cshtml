@@ -2,56 +2,120 @@
     ViewData["Title"] = "Detaylı Raporlar";
 }
 
-<div class="container mt-4">
-    <h2>📊 Randevu Raporları (REST API)</h2>
-    <hr />
+<style>
+    
 
-    <div class="card p-4 bg-light shadow-sm mb-4">
-        <div class="row align-items-end">
-            <div class="col-md-4">
-                <label class="form-label fw-bold">Başlangıç Tarihi</label>
-                <input type="date" id="startDate" class="form-control" />
-            </div>
-            <div class="col-md-4">
-                <label class="form-label fw-bold">Bitiş Tarihi</label>
-                <input type="date" id="endDate" class="form-control" />
-            </div>
-            <div class="col-md-4">
-                <button onclick="getReport()" class="btn btn-primary w-100">
-                    🔍 Raporu Getir
-                </button>
+    
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1); /* Siyahı beyaza çevirir */
+        opacity: 0.8; 
+        cursor: pointer;
+    }
+
+    /* 2. SOLDAKİ KUTUCUĞUN KENARLIK DÜZELTMESİ */
+    .input-group-text-custom {
+        background-color: #111814; /* Çok koyu yeşil arka plan */
+        border: 1px solid #283930; /* Kenarlık rengi (Input ile aynı) */
+        border-right: 1px solid #283930 !important; /* Sağ kenarlığı zorla göster */
+        color: #9db9ab; /* İkon rengi (Soluk yeşil/gri) */
+    }
+
+    /* Input Alanı (Sağ taraf) */
+    .form-control-custom {
+        background-color: #111814;
+        border: 1px solid #283930;
+        color: white;
+    }
+
+        .form-control-custom:focus {
+            background-color: #111814;
+            color: white;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 0 0.25rem rgba(19, 236, 128, 0.25);
+        }
+
+</style>
+
+<div class="container py-5">
+
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <div class="bg-dark border border-secondary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+            <span class="material-symbols-outlined fs-2" style="color: var(--neon-green);">bar_chart</span>
+        </div>
+        <div>
+            <h1 class="fw-bold text-white m-0">Randevu Raporları (REST API)</h1>
+            <p class="text-secondary m-0 small">Belirli tarih aralığındaki randevuları listeleyin.</p>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-lg mb-4" style="background-color: #1c2721; border: 1px solid var(--border-dark) !important;">
+        <div class="card-body p-4">
+            <div class="row g-3 align-items-end">
+
+                <div class="col-md-5">
+                    <label class="text-white fw-bold mb-2 small">Başlangıç Tarihi</label>
+                    <div class="input-group">
+                        <span class="input-group-text input-group-text-custom">
+                            <span class="material-symbols-outlined fs-6">calendar_today</span>
+                        </span>
+                        <input type="date" id="startDate" class="form-control form-control-custom" />
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <label class="text-white fw-bold mb-2 small">Bitiş Tarihi</label>
+                    <div class="input-group">
+                        <span class="input-group-text input-group-text-custom">
+                            <span class="material-symbols-outlined fs-6">event</span>
+                        </span>
+                        <input type="date" id="endDate" class="form-control form-control-custom" />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <button onclick="getReport()" class="btn btn-neon w-100 fw-bold d-flex align-items-center justify-content-center gap-2" style="height: 42px;">
+                        <span class="material-symbols-outlined fs-6">search</span> Getir
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="card shadow">
-        <div class="card-header bg-dark text-white">
-            Sonuçlar
+    <div class="card border-0 shadow-lg" style="background-color: #1c2721;">
+        <div class="card-header bg-transparent border-bottom border-secondary py-3">
+            <h5 class="m-0 fw-bold text-white d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-success">list_alt</span>
+                Sonuçlar
+            </h5>
         </div>
         <div class="card-body p-0">
-            <table class="table table-striped mb-0" id="reportTable">
-                <thead>
-                    <tr>
-                        <th>Tarih</th>
-                        <th>Üye</th>
-                        <th>Eğitmen</th>
-                        <th>Hizmet</th>
-                        <th>Durum</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    <tr>
-                        <td colspan="5" class="text-center text-muted p-3">Lütfen tarih seçip butona basınız.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle" id="reportTable">
+                    <thead>
+                        <tr>
+                            <th class="text-success">TARİH</th>
+                            <th class="text-success">ÜYE</th>
+                            <th class="text-success">EĞİTMEN</th>
+                            <th class="text-success">HİZMET</th>
+                            <th class="text-success">DURUM</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody" class="text-white">
+                        <tr>
+                            <td colspan="5" class="text-center py-5 text-secondary">
+                                <span class="material-symbols-outlined fs-1 d-block mb-3 text-muted">date_range</span>
+                                Lütfen tarih seçip butona basınız.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
     async function getReport() {
-        // 1. Tarihleri al
         var start = document.getElementById("startDate").value;
         var end = document.getElementById("endDate").value;
 
@@ -60,46 +124,42 @@
             return;
         }
 
-        // Tabloyu temizle ve "Yükleniyor..." yaz
         var tbody = document.getElementById("tableBody");
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center">Veriler Yükleniyor...</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-white"><div class="spinner-border text-success" role="status"></div><div class="mt-2">Veriler Yükleniyor...</div></td></tr>';
 
         try {
-            // 2. API'ye İstek At (Fetch)
-            // REST API Çağrısı burada yapılıyor
             var url = `/api/ReportsApi/GetAppointments?startDate=${start}&endDate=${end}`;
             var response = await fetch(url);
 
-            if (!response.ok) {
-                throw new Error("API Hatası");
-            }
+            if (!response.ok) { throw new Error("API Hatası"); }
 
-            // 3. Gelen JSON verisini al
             var data = await response.json();
-
-            // 4. Tabloyu doldur
-            tbody.innerHTML = ""; // Temizle
+            tbody.innerHTML = "";
 
             if (data.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" class="text-center text-warning">Bu tarih aralığında kayıt bulunamadı.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-secondary">Bu tarih aralığında kayıt bulunamadı.</td></tr>';
                 return;
             }
 
-            // Döngü ile satırları ekle
             data.forEach(item => {
+                var badgeClass = "bg-secondary";
+                if (item.durum === "Onaylandı") badgeClass = "bg-success text-dark";
+                else if (item.durum === "Bekliyor") badgeClass = "bg-warning text-dark";
+                else if (item.durum === "Reddedildi") badgeClass = "bg-danger";
+
                 var row = `<tr>
-                                <td>${item.tarih}</td>
-                                <td>${item.uyeAdi}</td>
-                                <td>${item.hocaAdi}</td>
-                                <td><span class="badge bg-info text-dark">${item.hizmet}</span></td>
-                                <td>${item.durum}</td>
+                                <td class="fw-bold text-white">${item.tarih}</td>
+                                <td class="text-white">${item.uyeAdi}</td>
+                                <td class="text-white">${item.hocaAdi}</td>
+                                <td class="text-white">${item.hizmet}</td>
+                                <td><span class="badge ${badgeClass} px-3 py-2 rounded-pill">${item.durum}</span></td>
                            </tr>`;
                 tbody.innerHTML += row;
             });
 
         } catch (error) {
             console.error(error);
-            tbody.innerHTML = '<tr><td colspan="5" class="text-center text-danger">Veri çekilirken hata oluştu.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="5" class="text-center text-danger py-4">Veri çekilirken hata oluştu. Lütfen tekrar deneyin.</td></tr>';
         }
     }
 </script>

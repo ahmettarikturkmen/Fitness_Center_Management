@@ -4,120 +4,213 @@
     ViewData["Title"] = "AI Akıllı Koç";
 }
 
-<div class="container mt-4">
+<style>
+    .form-control-dark, .form-select-dark {
+        background-color: #1c2721;
+        border: 1px solid #3b5447;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+    }
+
+        .form-control-dark:focus, .form-select-dark:focus {
+            background-color: #1c2721;
+            color: white;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 0 0.25rem rgba(19, 236, 128, 0.25);
+        }
+
+        .form-control-dark::placeholder {
+            color: #6c757d;
+        }
+
+    #loadingArea {
+        display: none;
+    }
+</style>
+
+<div class="container py-5">
+
     <div class="text-center mb-5">
-        <h1 class="display-5 fw-bold text-primary">🤖 AI Akıllı Fitness Koçu</h1>
-        <p class="lead text-muted">Vücut bilgilerinizi girin, Yapay Zeka size özel beslenme ve antrenman planı hazırlasın.</p>
+        <div class="d-inline-flex align-items-center justify-content-center p-3 rounded-circle bg-dark border border-secondary mb-3">
+            <span class="material-symbols-outlined fs-1" style="color: var(--neon-green);">smart_toy</span>
+        </div>
+        <h1 class="fw-bold text-white">AI Akıllı Fitness Koçu</h1>
+        <p class="text-secondary">Vücut bilgilerinizi girin, size özel plan hazırlayalım.</p>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card shadow-lg border-0">
-                <div class="card-header bg-dark text-white">
-                    <h5 class="mb-0">📋 Bilgilerinizi Girin</h5>
-                </div>
-                <div class="card-body">
-                    <form asp-action="GeneratePlan" method="post" id="aiForm">
+    <div class="row g-5">
 
-                        <div class="row mb-3">
-                            <div class="col">
-                                <label asp-for="Age" class="form-label">Yaş</label>
-                                <input asp-for="Age" class="form-control" placeholder="25" />
-                                <span asp-validation-for="Age" class="text-danger"></span>
-                            </div>
-                            <div class="col">
-                                <label asp-for="Gender" class="form-label">Cinsiyet</label>
-                                <select asp-for="Gender" class="form-select">
-                                    <option value="Erkek">Erkek</option>
-                                    <option value="Kadın">Kadın</option>
-                                </select>
-                            </div>
+        <div class="col-lg-4">
+            <div class="p-4 rounded-4" style="background-color: rgba(28, 39, 33, 0.5); border: 1px solid var(--border-dark);">
+                <h4 class="text-white fw-bold mb-4 d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined text-success">edit_note</span> Bilgilerini Gir
+                </h4>
+
+                <form asp-action="GeneratePlan" method="post" id="aiForm">
+                    <div class="row g-3 mb-3">
+                        <div class="col-6">
+                            <label class="form-label text-secondary small">Yaş</label>
+                            <input asp-for="Age" class="form-control form-control-dark" placeholder="25" />
+                            <span asp-validation-for="Age" class="text-danger small"></span>
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col">
-                                <label asp-for="Height" class="form-label">Boy (cm)</label>
-                                <input asp-for="Height" class="form-control" placeholder="180" />
-                                <span asp-validation-for="Height" class="text-danger"></span>
-                            </div>
-                            <div class="col">
-                                <label asp-for="Weight" class="form-label">Kilo (kg)</label>
-                                <input asp-for="Weight" class="form-control" placeholder="80" />
-                                <span asp-validation-for="Weight" class="text-danger"></span>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="ActivityLevel" class="form-label">Aktivite Düzeyi</label>
-                            <select asp-for="ActivityLevel" class="form-select">
-                                <option value="Hareketsiz (Masa başı)">Hareketsiz (Masa başı)</option>
-                                <option value="Az Hareketli (Haftada 1-2 gün spor)">Az Hareketli (1-2 gün spor)</option>
-                                <option value="Aktif (Haftada 3-4 gün spor)">Aktif (3-4 gün spor)</option>
-                                <option value="Sporcu (Haftada 5+ gün spor)">Sporcu (5+ gün spor)</option>
+                        <div class="col-6">
+                            <label class="form-label text-secondary small">Cinsiyet</label>
+                            <select asp-for="Gender" class="form-select form-select-dark">
+                                <option value="Erkek">Erkek</option>
+                                <option value="Kadın">Kadın</option>
                             </select>
                         </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Goal" class="form-label fw-bold text-primary">Hedefiniz</label>
-                            <select asp-for="Goal" class="form-select">
-                                <option value="Kilo Vermek (Yağ Yakımı)">Kilo Vermek (Yağ Yakımı)</option>
-                                <option value="Kilo Almak (Hacim)">Kilo Almak (Hacim)</option>
-                                <option value="Formu Korumak">Formu Korumak</option>
-                                <option value="Kas Kütlesini Artırmak">Kas Kütlesini Artırmak</option>
-                            </select>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-6">
+                            <label class="form-label text-secondary small">Boy (cm)</label>
+                            <input asp-for="Height" class="form-control form-control-dark" placeholder="180" />
+                            <span asp-validation-for="Height" class="text-danger small"></span>
                         </div>
+                        <div class="col-6">
+                            <label class="form-label text-secondary small">Kilo (kg)</label>
+                            <input asp-for="Weight" class="form-control form-control-dark" placeholder="80" />
+                            <span asp-validation-for="Weight" class="text-danger small"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-secondary small">Aktivite Düzeyi</label>
+                        <select asp-for="ActivityLevel" class="form-select form-select-dark">
+                            <option value="Hareketsiz">Hareketsiz (Masa başı)</option>
+                            <option value="Az Hareketli">Az Hareketli (1-2 gün)</option>
+                            <option value="Aktif">Aktif (3-4 gün)</option>
+                            <option value="Sporcu">Sporcu (5+ gün)</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label text-secondary small">Hedefiniz</label>
+                        <select asp-for="Goal" class="form-select form-select-dark">
+                            <option value="Kilo Vermek">Kilo Vermek</option>
+                            <option value="Kilo Almak">Kilo Almak</option>
+                            <option value="Form Korumak">Formu Korumak</option>
+                            <option value="Kas Yapmak">Kas Yapmak</option>
+                        </select>
+                    </div>
 
-                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" onclick="showLoading()">
-                            ✨ Planımı Oluştur
-                        </button>
-                    </form>
-                </div>
+                    <button type="submit" onclick="showLoading()" class="btn btn-neon w-100 py-2 mb-3 d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">auto_awesome</span> Plan Oluştur
+                    </button>
+
+                    <button type="button" id="btnCreateImage" class="btn btn-warning w-100 py-2 d-flex align-items-center justify-content-center gap-2 shadow">
+                        <span class="material-symbols-outlined">image</span> Hedef Görüntümü Oluştur
+                    </button>
+
+                </form>
             </div>
         </div>
 
-        <div class="col-md-8">
-            <div id="loadingArea" class="text-center d-none mt-5">
-                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                    <span class="visually-hidden">Yükleniyor...</span>
-                </div>
-                <h4 class="mt-3 text-primary">Yapay Zeka Planınızı Hazırlıyor...</h4>
-                <p class="text-muted">Lütfen bekleyin, bu işlem birkaç saniye sürebilir.</p>
+        <div class="col-lg-8">
+            <div id="loadingArea" class="text-center p-5 rounded-4 border border-secondary border-dashed" style="background-color: rgba(255,255,255,0.02);">
+                <div class="spinner-border text-success mb-3" role="status"></div>
+                <h4 class="text-white">Plan Hazırlanıyor...</h4>
             </div>
 
             @if (!string.IsNullOrEmpty(Model.AIResponse))
             {
-                <div class="card shadow border-0 h-100">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">✅ Size Özel Hazırlanan Program</h5>
+                <div class="card border-success shadow-lg" style="background-color: var(--card-dark);">
+                    <div class="card-header bg-success text-black fw-bold d-flex align-items-center gap-2">
+                        <span class="material-symbols-outlined">check_circle</span>
+                        Size Özel Diyet ve Antrenman
                     </div>
-                    <div class="card-body bg-light">
-                        <div style="white-space: pre-wrap; font-family: 'Segoe UI', sans-serif; line-height: 1.6;">@Model.AIResponse</div>
+                    <div class="card-body text-white p-4">
+                        <div style="white-space: pre-wrap;">@Model.AIResponse</div>
                     </div>
                 </div>
             }
             else
             {
-                <div class="text-center text-muted mt-5 pt-5">
-                    <i class="bi bi-robot fs-1"></i>
-                    <h3 class="mt-3">Sonuçlar Burada Görünecek</h3>
-                    <p>Sol taraftaki formu doldurup butona bastığınızda, size özel tavsiyeler buraya gelecek.</p>
+                <div id="emptyState" class="text-center p-5 rounded-4 border border-secondary border-dashed h-100 d-flex flex-column align-items-center justify-content-center" style="background-color: rgba(255,255,255,0.02);">
+                    <span class="material-symbols-outlined fs-1 text-secondary mb-3">article</span>
+                    <h4 class="text-white">Sonuçlar Burada Görünecek</h4>
+                    <p class="text-secondary">Bilgilerinizi girip plan oluşturun.</p>
                 </div>
             }
         </div>
     </div>
+
+    <div id="imageSection" class="row mt-5 d-none">
+        <div class="col-12">
+            <div class="card border-warning shadow-lg" style="background-color: #111814;">
+                <div class="card-header bg-warning text-dark fw-bold d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined">image</span>
+                    Yapay Zeka Tarafından Oluşturulan Hedef Görüntü
+                </div>
+                <div class="card-body text-center p-5">
+
+                    <div id="imgLoader" class="d-none">
+                        <div class="spinner-border text-warning mb-3" role="status"></div>
+                        <p class="text-white">Görüntü oluşturuluyor, lütfen bekleyin...</p>
+                    </div>
+
+                    <img id="generatedImage" src="" class="img-fluid rounded shadow-lg border border-secondary" style="max-height: 500px; display:none;" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
     <script>
         function showLoading() {
-            // Form geçerliyse yükleniyor ekranını göster
             if ($('#aiForm').valid()) {
-                document.getElementById('loadingArea').classList.remove('d-none');
+                $('#loadingArea').show();
+                $('#emptyState').hide();
             }
         }
+
+        $(document).ready(function() {
+            // Resim Oluştur Butonuna Tıklama
+            $("#btnCreateImage").click(function() {
+                
+                if (!$('#aiForm').valid()) {
+                    alert("Lütfen önce formdaki bilgileri doldurun.");
+                    return;
+                }
+
+                // UI İşlemleri
+                $("#imageSection").removeClass("d-none"); // Alt bölümü aç
+                $("#imgLoader").removeClass("d-none");    // Spinner'ı aç
+                $("#generatedImage").hide();              // Varsa eski resmi gizle
+
+                // Form verilerini al (Controller'a göndermek için)
+                var formData = $("#aiForm").serialize();
+
+                // AJAX İsteği
+                $.ajax({
+                    url: '/AI/GenerateImage', // Controller'daki yeni metod
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $("#imgLoader").addClass("d-none"); // Spinner kapa
+
+                        if (response.success) {
+                            $("#generatedImage").attr("src", response.imageUrl).show(); // Resmi göster
+
+                            // Sayfayı resme doğru kaydır
+                            $('html, body').animate({
+                                scrollTop: $("#imageSection").offset().top
+                            }, 1000);
+                        } else {
+                            alert("Hata oluştu: " + response.message);
+                        }
+                    },
+                    error: function() {
+                        $("#imgLoader").addClass("d-none");
+                        alert("Sunucu hatası oluştu.");
+                    }
+                });
+            });
+        });
     </script>
 }

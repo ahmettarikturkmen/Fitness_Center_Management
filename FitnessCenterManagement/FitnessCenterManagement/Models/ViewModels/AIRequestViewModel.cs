@@ -20,12 +20,18 @@ namespace FitnessCenterManagement.Models.ViewModels
         public string Gender { get; set; }
 
         [Display(Name = "Hedefiniz")]
-        public string Goal { get; set; } // Örn: Kilo Ver, Kas Yap
+        public string Goal { get; set; } 
 
         [Display(Name = "Aktivite Düzeyi")]
-        public string ActivityLevel { get; set; } // Örn: Hareketsiz, Orta, Yüksek
+        public string ActivityLevel { get; set; } 
 
-        // Yapay Zeka'dan gelen cevabı burada saklayacağız
+        //  Yapay Zeka'dan gelen Diyet/Antrenman metni
         public string? AIResponse { get; set; }
+
+       
+        public string? ImagePrompt { get; set; }
+
+        // 3. Oluşturulan Resmin Linki (Gerekirse kullanılabilir)
+        public string? GeneratedImageUrl { get; set; }
     }
 }

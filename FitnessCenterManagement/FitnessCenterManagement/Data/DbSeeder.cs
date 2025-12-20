@@ -11,12 +11,12 @@ namespace FitnessCenterManagement.Data
             var userManager = service.GetService<UserManager<ApplicationUser>>();
             var roleManager = service.GetService<RoleManager<IdentityRole>>();
 
-            // 1. Roller Var mý? Yoksa oluþtur.
+            //  Roller Var mý? Yoksa oluþtur.
             await CreateRoleAsync(roleManager, "Admin");
             await CreateRoleAsync(roleManager, "Member");
             await CreateRoleAsync(roleManager, "Trainer");
 
-            // 2. Admin Kullanýcýsý Var mý? Yoksa oluþtur.
+            //  Admin Kullanýcýsý Var mý? Yoksa oluþtur.
             var adminEmail = "g221210087@sakarya.edu.tr";
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
@@ -31,7 +31,7 @@ namespace FitnessCenterManagement.Data
                     BirthDate = DateTime.Now.AddYears(-25)
                 };
 
-                // Þifre: sau (Proje isterindeki gibi)
+                // Þifre: sau 
                 var result = await userManager.CreateAsync(newAdmin, "sau");
 
                 if (result.Succeeded)

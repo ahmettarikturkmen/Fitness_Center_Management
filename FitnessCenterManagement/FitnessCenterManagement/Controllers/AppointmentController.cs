@@ -21,7 +21,7 @@ namespace FitnessCenterManagement.Controllers
             _userManager = userManager;
         }
 
-        // 1. Randevularım Sayfası (Kullanıcının geçmiş ve gelecek randevuları)
+        // Randevularım Sayfası (Kullanıcının geçmiş ve gelecek randevuları)
         public async Task<IActionResult> Index()
         {
             // Şu anki giriş yapmış kullanıcının ID'sini bul
@@ -39,7 +39,7 @@ namespace FitnessCenterManagement.Controllers
             return View(appointments);
         }
 
-        // 2. Randevu Al Sayfası (GET) - Formu Gösterir
+        //  Randevu Al Sayfası (GET) - Formu Gösterir
         [HttpGet]
         public async Task<IActionResult> Create(int? gymId)
         {
@@ -68,15 +68,16 @@ namespace FitnessCenterManagement.Controllers
             return View();
         }
 
-        // 3. Randevu Kaydetme İşlemi (POST)
+        //  Randevu Kaydetme İşlemi (POST)
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Appointment appointment, int gymId, DateTime date, TimeSpan time)
         {
-            // 1. Tarih ve Saati Birleştiriyoruz
+            // Tarih ve Saati Birleştiriyoruz
             appointment.AppointmentDate = date.Date + time;
             appointment.GymId = gymId;
 
-            // 2. Validation Temizliği (Bu alanları formdan beklemiyoruz, kodla dolduruyoruz)
+            // Validation Temizliği (Bu alanları formdan beklemiyoruz, kodla dolduruyoruz)
             ModelState.Remove("Member");
             ModelState.Remove("MemberId");
             ModelState.Remove("Gym");
@@ -84,7 +85,6 @@ namespace FitnessCenterManagement.Controllers
             ModelState.Remove("Service");
 
             // --- ZORUNLU ALAN KONTROLLERİ ---
-            // Eğer dropdown'dan seçim yapılmadıysa ID'ler 0 gelir.
             if (appointment.TrainerId == 0) ModelState.AddModelError("TrainerId", "Lütfen bir eğitmen seçiniz.");
             if (appointment.ServiceId == 0) ModelState.AddModelError("ServiceId", "Lütfen bir hizmet seçiniz.");
 
@@ -101,65 +101,85 @@ namespace FitnessCenterManagement.Controllers
                 ModelState.AddModelError("", $"Salon {gym.OpenHour} - {gym.CloseHour} saatleri arasında açıktır.");
             }
 
-            // ============================================================
-            // !!! BURASI YENİ: EĞİTMEN MÜSAİTLİK KONTROLÜ (KRİTİK KISIM) !!!
-            // ============================================================
-
-            if (appointment.TrainerId != 0) // Eğer eğitmen seçildiyse kontrol et
+            if (appointment.TrainerId != 0 && appointment.ServiceId != 0)
             {
-                // A) EĞİTMEN O GÜN/SAAT ÇALIŞIYOR MU?
-                // C#'ta Pazar=0, Pazartesi=1... Veritabanımız da buna uyumlu.
-                int gunNo = (int)appointment.AppointmentDate.DayOfWeek;
-
-                // Veritabanına soruyoruz:
-                // "Bu hocanın, bu günde, bu saati kapsayan bir çalışma kaydı var mı?"
-                var isWorking = await _context.TrainerWorkHours
-                    .AnyAsync(w => w.TrainerId == appointment.TrainerId
-                                && w.DayOfWeek == gunNo
-                                && w.StartTime <= time    // Başlangıç saati randevudan önce veya eşit mi?
-                                && w.EndTime > time);     // Bitiş saati randevudan sonra mı?
-
-                // Eğer böyle bir kayıt YOKSA -> Hoca çalışmıyordur.
-                if (!isWorking)
+                //  HİZMET SÜRESİNİ BULALIM
+                var selectedService = await _context.Services.FindAsync(appointment.ServiceId);
+                if (selectedService != null)
                 {
-                    ModelState.AddModelError("", "Seçtiğiniz eğitmen, talep ettiğiniz gün ve saatte hizmet vermemektedir. Lütfen eğitmenin çalışma saatlerine (Profilinden veya Bilgi kısmından) dikkat ediniz.");
-                }
+                    // Yeni Randevunun Başlangıç ve Bitiş Zamanını Hesapla
+                    DateTime newStart = appointment.AppointmentDate;
+                    DateTime newEnd = newStart.AddMinutes(selectedService.Duration); // Örn: 09:00 + 90dk = 10:30
 
-                // B) EĞİTMEN O SAATTE DOLU MU? (ÇAKIŞMA KONTROLÜ)
-                // Veritabanına soruyoruz:
-                // "Bu hocanın, tam bu tarihte ve saatte, iptal edilmemiş başka bir randevusu var mı?"
-                var isBusy = await _context.Appointments
-                    .AnyAsync(a => a.TrainerId == appointment.TrainerId
-                                && a.AppointmentDate == appointment.AppointmentDate
-                                && a.Status != "İptal"       // İptal edilenler engel teşkil etmez
-                                && a.Status != "Reddedildi"); // Reddedilenler engel teşkil etmez
+                    // EĞİTMEN O GÜN ÇALIŞIYOR MU? (Vardiya Kontrolü)
+                    int gunNo = (int)newStart.DayOfWeek;
+                    var isWorking = await _context.TrainerWorkHours
+                        .AnyAsync(w => w.TrainerId == appointment.TrainerId
+                                    && w.DayOfWeek == gunNo
+                                    && w.StartTime <= time
+                                    && w.EndTime > time); 
 
-                if (isBusy)
-                {
-                    ModelState.AddModelError("", "Bu saatte seçtiğiniz eğitmenin başka bir üye ile randevusu mevcut. Lütfen farklı bir saat seçiniz.");
+                    if (!isWorking)
+                    {
+                        
+                        ModelState.AddModelError("", "Seçtiğiniz eğitmen, talep ettiğiniz gün ve saatte hizmet vermemektedir. Lütfen eğitmenin çalışma saatlerine dikkat ediniz.");
+                    }
+                    else
+                    {
+                        //  ÇAKIŞMA KONTROLÜ 
+                        // Sadece o günkü randevuları çekelim (Performans için)
+                        var existingAppointments = await _context.Appointments
+                            .Include(a => a.Service) 
+                            .Where(a => a.TrainerId == appointment.TrainerId
+                                        && a.AppointmentDate.Date == newStart.Date 
+                                        && a.Status != "İptal"
+                                        && a.Status != "Reddedildi")
+                            .ToListAsync();
+
+                        bool hasOverlap = false;
+                        foreach (var existing in existingAppointments)
+                        {
+                            // Mevcut randevunun başlangıç ve bitişi
+                            DateTime existingStart = existing.AppointmentDate;
+                            // Eğer veritabanında eski kayıtlarda service null ise varsayılan 60dk ekle (hata almamak için)
+                            int existingDuration = existing.Service != null ? existing.Service.Duration : 60;
+                            DateTime existingEnd = existingStart.AddMinutes(existingDuration);
+
+                            // ÇAKIŞMA FORMÜLÜ: (StartA < EndB) && (EndA > StartB)
+                            // Bu formül; içine almayı, üstüne binmeyi, kesişmeyi yakalar.
+                            if (newStart < existingEnd && newEnd > existingStart)
+                            {
+                                hasOverlap = true;
+                                break;
+                            }
+                        }
+
+                        if (hasOverlap)
+                        {
+                            ModelState.AddModelError("", $"Seçtiğiniz saat aralığı ({newStart:HH:mm} - {newEnd:HH:mm}) dolu. Eğitmenin mevcut bir randevusu ile çakışıyor.");
+                        }
+                    }
                 }
             }
             // ============================================================
 
 
             // --- KAYIT İŞLEMİ ---
-            // Eğer yukarıdaki kontrollerden hiçbiri hata fırlatmadıysa (ModelState.IsValid true ise)
             if (ModelState.IsValid)
             {
                 var userId = _userManager.GetUserId(User);
                 appointment.MemberId = userId;
-                appointment.Status = "Bekliyor"; // Onay mekanizması için durumu 'Bekliyor' yapıyoruz
+                appointment.Status = "Bekliyor";
 
                 _context.Appointments.Add(appointment);
                 await _context.SaveChangesAsync();
 
-                // Başarılı olursa listeye gönder
                 return RedirectToAction(nameof(Index));
             }
 
-            // --- HATA VARSA SAYFAYI TEKRAR DOLDUR (Dropdownlar boşalmasın) ---
-            ViewBag.Services = new SelectList(_context.Services.Where(s => s.GymId == gymId), "Id", "Name");
-            ViewBag.Trainers = new SelectList(_context.Trainers.Where(t => t.GymId == gymId), "Id", "FullName");
+            // --- HATA VARSA SAYFAYI TEKRAR DOLDUR ---
+            ViewBag.Services = new SelectList(_context.Services.Where(s => s.GymId == gymId), "Id", "Name", appointment.ServiceId);
+            ViewBag.Trainers = new SelectList(_context.Trainers.Where(t => t.GymId == gymId), "Id", "FullName", appointment.TrainerId);
 
             if (gym != null)
             {
@@ -169,8 +189,23 @@ namespace FitnessCenterManagement.Controllers
             }
             ViewBag.GymId = gymId;
 
-            // Hatalı sayfayı geri döndür (Kırmızı uyarılar çıkacak)
             return View(appointment);
+        }
+
+        [HttpGet]
+        public IActionResult GetTrainerWorkHours(int trainerId)
+        {
+            var hours = _context.TrainerWorkHours
+                .Where(x => x.TrainerId == trainerId)
+                .Select(x => new
+                {
+                    day = x.DayOfWeek,
+                    start = x.StartTime.ToString(@"hh\:mm"),
+                    end = x.EndTime.ToString(@"hh\:mm")
+                })
+                .ToList();
+
+            return Json(hours);
         }
     }
 }

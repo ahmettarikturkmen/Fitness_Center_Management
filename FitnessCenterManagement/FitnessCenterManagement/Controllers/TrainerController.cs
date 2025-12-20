@@ -20,23 +20,23 @@ namespace FitnessCenterManagement.Controllers
         // ANTRENÖR PANELİ (DASHBOARD)
         public async Task<IActionResult> Index()
         {
-            // 1. Giriş yapan kullanıcının emailini al
+            //  Giriş yapan kullanıcının emailini al
             var userEmail = User.Identity.Name;
 
-            // 2. Bu email hangi Antrenöre ait? (Trainer tablosunda ara)
+            // Bu email hangi Antrenöre ait? (Trainer tablosunda ara)
             var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Email == userEmail);
 
             if (trainer == null)
             {
-                // Eğer email eşleşmezse hata ver (Admin email girmeyi unutmuş olabilir)
+                // Eğer email eşleşmezse hata ver 
                 return View("Error", new { message = "Antrenör kaydınız bulunamadı. Lütfen yöneticiyle iletişime geçin." });
             }
 
-            // 3. Sadece BU antrenöre ait randevuları getir
+            //  Sadece BU antrenöre ait randevuları getir
             var appointments = await _context.Appointments
                 .Include(a => a.Member)
                 .Include(a => a.Service)
-                .Where(a => a.TrainerId == trainer.Id) // Filtreleme burada!
+                .Where(a => a.TrainerId == trainer.Id) 
                 .OrderByDescending(a => a.AppointmentDate)
                 .ToListAsync();
 
@@ -69,11 +69,10 @@ namespace FitnessCenterManagement.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // ==========================================
+        
         // ÇALIŞMA SAATLERİ YÖNETİMİ
-        // ==========================================
-
-        // 1. Saatleri Listeleme Sayfası
+       
+        //  Saatleri Listeleme Sayfası
         public async Task<IActionResult> WorkHours()
         {
             var userEmail = User.Identity.Name;
@@ -90,7 +89,7 @@ namespace FitnessCenterManagement.Controllers
             return View(hours);
         }
 
-        // 2. Yeni Saat Ekleme (POST)
+        //  Yeni Saat Ekleme (POST)
         [HttpPost]
         public async Task<IActionResult> AddWorkHour(int dayOfWeek, TimeSpan startTime, TimeSpan endTime)
         {
@@ -118,7 +117,7 @@ namespace FitnessCenterManagement.Controllers
             return RedirectToAction("WorkHours");
         }
 
-        // 3. Saat Silme (POST)
+        //  Saat Silme (POST)
         [HttpPost]
         public async Task<IActionResult> DeleteWorkHour(int id)
         {

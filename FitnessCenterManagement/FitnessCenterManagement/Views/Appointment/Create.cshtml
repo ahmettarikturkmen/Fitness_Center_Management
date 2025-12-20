@@ -4,58 +4,239 @@
     ViewData["Title"] = "Randevu Al";
 }
 
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h4>Randevu Oluştur</h4>
-                    <p class="mb-0">Salon: <strong>@ViewBag.GymName</strong></p>
-                </div>
-                <div class="card-body">
-                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+<style>
+    
 
-                    <form asp-action="Create" method="post">
-                        <input type="hidden" name="gymId" value="@ViewBag.GymId" />
+    /* Input Grubu ve İkonlar */
+    .input-group-text-custom {
+        background-color: #111814;
+        border: 1px solid #283930;
+        border-right: 1px solid #283930 !important;
+        color: #9db9ab;
+    }
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Tarih</label>
-                                <input type="date" name="date" class="form-control" required min="@DateTime.Now.ToString("yyyy-MM-dd")" />
-                            </div>
+    .form-control-custom, .form-select-custom {
+        background-color: #111814 !important;
+        border: 1px solid #283930 !important;
+        color: white !important;
+    }
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Saat</label>
-                                <input type="time" name="time" class="form-control" required />
-                                <small class="text-muted">Çalışma Saatleri: @ViewBag.OpenHour - @ViewBag.CloseHour</small>
-                            </div>
+        .form-control-custom:focus, .form-select-custom:focus {
+            border-color: var(--neon-green) !important;
+            box-shadow: 0 0 0 0.25rem rgba(19, 236, 128, 0.25);
+        }
+
+    /* Tarih/Saat İkonları */
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+        opacity: 0.7;
+    }
+
+    /* Dropdown Ok İşareti */
+    .form-select-custom {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239db9ab' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    }
+
+   
+    .work-hour-card {
+        background-color: #111814;
+        border: 1px solid #283930;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+        .work-hour-card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-2px);
+        }
+
+    .day-badge {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: var(--neon-green);
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .time-range {
+        color: white;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+</style>
+
+<div class="container py-5">
+
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <div class="bg-dark border border-secondary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+            <span class="material-symbols-outlined fs-2" style="color: var(--neon-green);">edit_calendar</span>
+        </div>
+        <div>
+            <h1 class="fw-bold text-white m-0">Randevu Oluştur</h1>
+            <p class="text-secondary m-0 small">
+                Salon: <strong class="text-white">@ViewBag.GymName</strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-lg" style="background-color: #1c2721; border: 1px solid #283930 !important;">
+        <div class="card-body p-4">
+
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger bg-dark border-danger text-danger"></div>
+
+            <form asp-action="Create" method="post">
+                <input type="hidden" name="gymId" value="@ViewBag.GymId" />
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+                        <label class="text-white fw-bold mb-2 small">Tarih</label>
+                        <div class="input-group">
+                            <span class="input-group-text input-group-text-custom">
+                                <span class="material-symbols-outlined fs-6">calendar_today</span>
+                            </span>
+                            <input type="date" name="date" class="form-control form-control-custom" required min="@DateTime.Now.ToString("yyyy-MM-dd")" />
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Almak İstediğiniz Hizmet</label>
-                                <select asp-for="ServiceId" class="form-select" asp-items="ViewBag.Services">
-                                    <option value="">-- Hizmet Seçiniz --</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Eğitmen Tercihi</label>
-                                <select asp-for="TrainerId" class="form-select" asp-items="ViewBag.Trainers">
-                                    <option value="">-- Eğitmen Seçiniz --</option>
-                                </select>
-                            </div>
+                    <div class="col-md-6">
+                        <label class="text-white fw-bold mb-2 small">Saat</label>
+                        <div class="input-group">
+                            <span class="input-group-text input-group-text-custom">
+                                <span class="material-symbols-outlined fs-6">schedule</span>
+                            </span>
+                            <input type="time" name="time" class="form-control form-control-custom" required />
                         </div>
+                        <div class="form-text text-secondary small mt-1">
+                            Salon Açık: <span class="text-white">@ViewBag.OpenHour - @ViewBag.CloseHour</span>
+                        </div>
+                    </div>
 
-                        <button type="submit" class="btn btn-primary w-100 btn-lg mt-3">Randevu Al</button>
-                    </form>
+                    <div class="col-md-6">
+                        <label class="text-white fw-bold mb-2 small">Almak İstediğiniz Hizmet</label>
+                        <div class="input-group">
+                            <span class="input-group-text input-group-text-custom">
+                                <span class="material-symbols-outlined fs-6">fitness_center</span>
+                            </span>
+                            <select asp-for="ServiceId" class="form-select form-select-custom" asp-items="ViewBag.Services">
+                                <option value="">-- Hizmet Seçiniz --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="text-white fw-bold mb-2 small">Eğitmen Tercihi</label>
+                        <div class="input-group">
+                            <span class="input-group-text input-group-text-custom">
+                                <span class="material-symbols-outlined fs-6">person</span>
+                            </span>
+                            <select asp-for="TrainerId" id="TrainerId" class="form-select form-select-custom" asp-items="ViewBag.Trainers">
+                                <option value="">-- Eğitmen Seçiniz --</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+
+                <div id="trainerScheduleArea" class="mt-4 p-3 rounded-3 border border-secondary d-none" style="background-color: rgba(0,0,0,0.2);">
+                    <h6 class="text-white fw-bold mb-3 d-flex align-items-center gap-2">
+                        <span class="material-symbols-outlined text-warning fs-5">schedule</span>
+                        <span id="trainerNameDisplay">Seçilen Eğitmenin</span> Çalışma Saatleri
+                    </h6>
+
+                    <div id="scheduleGrid" class="row g-2">
+                    </div>
+
+                    <div id="noScheduleMsg" class="text-secondary small d-none">
+                        Bu eğitmen için özel çalışma saati girilmemiş.
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <button type="submit" class="btn btn-neon w-100 fw-bold py-3 shadow-lg d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">check_circle</span>
+                        Randevu Al
+                    </button>
+                </div>
+
+            </form>
         </div>
     </div>
 </div>
+
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        // Sayfa yüklendiğinde çalışacak
+        $(document).ready(function () {
+
+            // "TrainerId" değiştiğinde tetiklen
+            $("#TrainerId").change(function () {
+                var trainerId = $(this).val();
+                var trainerName = $("#TrainerId option:selected").text(); // Seçilen hocanın adını al
+
+                // Eğer "Seçiniz" seçildiyse kutuyu gizle
+                if (!trainerId) {
+                    $("#trainerScheduleArea").addClass("d-none");
+                    return;
+                }
+
+                // Kutuyu göster ve yükleniyor yap
+                $("#trainerScheduleArea").removeClass("d-none");
+                $("#trainerNameDisplay").text(trainerName);
+                $("#scheduleGrid").html('<div class="col-12 text-center text-muted"><div class="spinner-border spinner-border-sm text-success"></div> Yükleniyor...</div>');
+                $("#noScheduleMsg").addClass("d-none");
+
+                // AJAX İsteği (Backend'den veriyi çek)
+                $.ajax({
+                    url: '/Appointment/GetTrainerWorkHours', // Controller'daki metod
+                    type: 'GET',
+                    data: { trainerId: trainerId },
+                    success: function (data) {
+                        $("#scheduleGrid").empty(); // Önce temizle
+
+                        if (data.length === 0) {
+                            $("#noScheduleMsg").removeClass("d-none");
+                        } else {
+                            // Gün İsimlerini Türkçeleştirmek İçin Dizi
+                            // Backend'den "Monday", "Tuesday" veya 1, 2 gelebilir.
+                            // DayOfWeek enum genellikle 0=Sunday, 1=Monday şeklindedir.
+                            var dayNames = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+
+                            $.each(data, function (i, item) {
+                                // Gelen veride item.day muhtemelen sayı (0-6) veya İngilizce string
+                                var dayText = item.day;
+
+                                // Eğer sayı gelirse Türkçeye çevir
+                                if (typeof item.day === 'number') {
+                                    dayText = dayNames[item.day];
+                                }
+
+                                var htmlCard = `
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="work-hour-card">
+                                            <span class="day-badge">${dayText}</span>
+                                            <span class="time-range">${item.start} - ${item.end}</span>
+                                        </div>
+                                    </div>
+                                `;
+                                $("#scheduleGrid").append(htmlCard);
+                            });
+                        }
+                    },
+                    error: function () {
+                        $("#scheduleGrid").html('<div class="col-12 text-danger small">Saatler yüklenirken hata oluştu.</div>');
+                    }
+                });
+            });
+        });
+    </script>
 }

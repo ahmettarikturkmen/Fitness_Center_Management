@@ -1,149 +1,274 @@
 @model FitnessCenterManagement.Models.ViewModels.RegisterViewModel
 
 @{
-    Layout = null; /* Ana temadan baðýmsýz */
+    ViewData["Title"] = "Kayýt Ol";
 }
 
-<!DOCTYPE html>
-<html class="dark" lang="tr">
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Üye Kayýt - Fitness Center</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<style>
+    
 
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#13ec80",
-                        "background-light": "#f6f8f7",
-                        "background-dark": "#102219",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                },
-            },
+    /* Sayfa Yüksekliði */
+    .register-section {
+        min-height: calc(100vh - 80px);
+    }
+
+    /* Sol Taraf: Resim Alaný */
+    .register-image-col {
+        
+        background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover no-repeat;
+        position: relative;
+    }
+
+    .image-overlay {
+        background: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    /* Sað Taraf: Koyu Yeþil Arkaplan */
+    .register-right-panel {
+        background-color: #102219;
+        color: white;
+    }
+
+    .form-container {
+        max-width: 500px; 
+        width: 100%;
+        margin: auto;
+    }
+
+    /* Toggle (Giriþ/Kayýt) */
+    .auth-toggle-box {
+        background-color: #1c2721;
+        border: 1px solid var(--border-dark);
+        border-radius: 12px;
+        padding: 5px;
+        display: flex;
+        margin-bottom: 2rem;
+    }
+
+    .auth-toggle-btn {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s;
+    }
+        /* Kayýt Ol Aktif */
+        .auth-toggle-btn.active {
+            background-color: var(--neon-green);
+            color: black;
         }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+
+        .auth-toggle-btn.inactive {
+            color: #9db9ab;
+            background-color: transparent;
         }
-    </style>
-</head>
-<body class="font-display">
-    <div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
-        <div class="layout-container flex h-full min-h-screen grow flex-col">
-            <div class="flex flex-1 items-stretch">
-                <div class="flex w-full flex-col lg:flex-row">
 
-                    <div class="relative hidden w-full flex-col items-center justify-center bg-zinc-900 lg:flex lg:w-1/2">
-                        <div class="absolute inset-0 z-0 h-full w-full bg-cover bg-center"
-                             style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop');">
-                            <div class="absolute inset-0 h-full w-full bg-black/60"></div>
-                        </div>
-                        <div class="relative z-10 flex flex-col items-center text-center text-white">
-                            <span class="material-symbols-outlined text-primary mb-4 text-6xl">fitness_center</span>
-                            <h1 class="text-white tracking-tight text-4xl font-bold leading-tight">Harekete Geç.</h1>
-                            <p class="mt-2 max-w-sm text-lg text-white/70">Bugün atacaðýn adým, yarýnki gücün olacak.</p>
-                        </div>
-                    </div>
+            .auth-toggle-btn.inactive:hover {
+                color: white;
+                background-color: rgba(255,255,255,0.05);
+            }
 
-                    <div class="flex w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark p-6 lg:w-1/2">
-                        <div class="layout-content-container flex w-full max-w-md flex-col">
+    /* Input Tasarýmý */
+    .custom-input-group {
+        background-color: #1c392a;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        padding: 5px 15px;
+        border: 1px solid transparent;
+        transition: 0.3s;
+        margin-bottom: 5px;
+        position: relative;
+        overflow: hidden;
+    }
 
-                            <div class="flex px-4 py-3">
-                                <div class="flex h-12 flex-1 items-center justify-center rounded-xl bg-background-light dark:bg-[#1c392a] p-1.5">
-                                    <a href="/Account/Login" class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal text-slate-500 dark:text-slate-400 hover:bg-white/5">
-                                        <span class="truncate">Giriþ Yap</span>
-                                    </a>
-                                    <label class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal bg-primary text-black">
-                                        <span class="truncate">Kayýt Ol</span>
-                                        <input checked class="invisible w-0" type="radio" />
-                                    </label>
-                                </div>
-                            </div>
+        .custom-input-group:focus-within {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 0 2px rgba(19, 236, 128, 0.2);
+        }
 
-                            <h2 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight px-4 text-left pb-1 pt-6">Aramýza Katýl!</h2>
-                            <p class="px-4 text-slate-600 dark:text-slate-400">Bilgilerini girerek hemen üye ol.</p>
+        .custom-input-group .material-symbols-outlined {
+            color: #6c7d75;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            z-index: 10;
+        }
 
-                            <form asp-action="Register" method="post" class="mt-6 flex flex-col gap-4">
+        .custom-input-group input {
+            background: transparent;
+            border: none;
+            color: white;
+            width: 100%;
+            padding: 12px 0;
+            outline: none;
+            z-index: 5;
+        }
+            /* Tarih inputu için ikon rengi */
+            .custom-input-group input[type="date"]::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+                cursor: pointer;
+            }
 
-                                <div class="px-4 text-red-500 text-sm font-medium" asp-validation-summary="ModelOnly"></div>
+            .custom-input-group input::placeholder {
+                color: #6c7d75;
+            }
 
-                                <div class="flex flex-wrap items-end gap-4 px-4">
-                                    <label class="flex w-full flex-col">
-                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Ad Soyad</p>
-                                        <div class="relative flex w-full items-center">
-                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">person</span>
-                                            <input asp-for="FullName" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" placeholder="Adýnýz Soyadýnýz" />
-                                        </div>
-                                        <span asp-validation-for="FullName" class="text-red-500 text-xs mt-1"></span>
-                                    </label>
-                                </div>
+    
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px #1c392a inset !important;
+        -webkit-text-fill-color: white !important;
+        transition: background-color 5000s ease-in-out 0s;
+        caret-color: white;
+    }
 
-                                <div class="flex flex-wrap items-end gap-4 px-4">
-                                    <label class="flex w-full flex-col">
-                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Doðum Tarihi</p>
-                                        <div class="relative flex w-full items-center">
-                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">calendar_month</span>
-                                            <input asp-for="BirthDate" type="date" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" />
-                                        </div>
-                                        <span asp-validation-for="BirthDate" class="text-red-500 text-xs mt-1"></span>
-                                    </label>
-                                </div>
+    .custom-label {
+        color: white;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+        display: block;
+    }
 
-                                <div class="flex flex-wrap items-end gap-4 px-4">
-                                    <label class="flex w-full flex-col">
-                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">E-posta Adresi</p>
-                                        <div class="relative flex w-full items-center">
-                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">mail</span>
-                                            <input asp-for="Email" type="email" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" placeholder="ornek@eposta.com" />
-                                        </div>
-                                        <span asp-validation-for="Email" class="text-red-500 text-xs mt-1"></span>
-                                    </label>
-                                </div>
+    .btn-submit {
+        background-color: var(--neon-green);
+        color: black;
+        font-weight: 700;
+        width: 100%;
+        padding: 14px;
+        border-radius: 12px;
+        border: none;
+        margin-top: 20px;
+        transition: 0.3s;
+    }
 
-                                <div class="flex flex-wrap items-end gap-4 px-4">
-                                    <label class="flex w-full flex-col">
-                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Þifre</p>
-                                        <div class="relative flex w-full items-center">
-                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">lock</span>
-                                            <input asp-for="Password" type="password" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" placeholder="••••••••" />
-                                        </div>
-                                        <span asp-validation-for="Password" class="text-red-500 text-xs mt-1"></span>
-                                    </label>
-                                </div>
+        .btn-submit:hover {
+            background-color: #0fb863;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(19, 236, 128, 0.4);
+        }
+</style>
 
-                                <div class="flex flex-wrap items-end gap-4 px-4">
-                                    <label class="flex w-full flex-col">
-                                        <p class="pb-2 text-base font-medium text-slate-700 dark:text-white">Þifre (Tekrar)</p>
-                                        <div class="relative flex w-full items-center">
-                                            <span class="material-symbols-outlined pointer-events-none absolute left-4 text-slate-400 dark:text-slate-500">lock_reset</span>
-                                            <input asp-for="ConfirmPassword" type="password" class="form-input h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-background-light dark:bg-[#1c392a] p-4 pl-12 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:text-white dark:placeholder:text-slate-500" placeholder="••••••••" />
-                                        </div>
-                                        <span asp-validation-for="ConfirmPassword" class="text-red-500 text-xs mt-1"></span>
-                                    </label>
-                                </div>
+<div class="container-fluid p-0">
+    <div class="row g-0 register-section">
 
-                                <div class="flex items-center justify-center p-4 mt-2">
-                                    <button type="submit" class="flex h-12 w-full flex-1 items-center justify-center rounded-xl bg-primary px-6 text-base font-bold text-black shadow-md transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
-                                        Kayýt Ol
-                                    </button>
-                                </div>
-                            </form>
+        <div class="col-lg-6 d-none d-lg-block register-image-col">
+            <div class="image-overlay">
+                <span class="material-symbols-outlined mb-3" style="font-size: 4rem; color: var(--neon-green);">fitness_center</span>
+                <h1 class="display-4 fw-bold text-white mb-3">Harekete Geç.</h1>
+                <p class="lead text-white-50" style="max-width: 400px;">
+                    Bugün atacaðýn adým, yarýnki gücün olacak. Hemen üye ol ve deðiþimi baþlat.
+                </p>
+            </div>
+        </div>
 
-                        </div>
-                    </div>
+        <div class="col-lg-6 d-flex align-items-center justify-content-center register-right-panel py-5">
+            <div class="form-container p-4">
+
+                <div class="auth-toggle-box">
+                    <a href="/Account/Login" class="auth-toggle-btn inactive">Giriþ Yap</a>
+                    <a href="javascript:void(0)" class="auth-toggle-btn active">Kayýt Ol</a>
                 </div>
+
+                <h2 class="fw-bold text-white mb-1">Aramýza Katýl!</h2>
+                <p class="text-secondary mb-4">Bilgilerini girerek hemen üye ol.</p>
+
+                <form asp-action="Register" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <div class="mb-3">
+                        <label class="custom-label">Ad Soyad</label>
+                        <div class="custom-input-group">
+                            <span class="material-symbols-outlined">person</span>
+                            <input asp-for="FullName" placeholder="Adýnýz Soyadýnýz" />
+                        </div>
+                        <span asp-validation-for="FullName" class="text-danger small ms-1"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="custom-label">Doðum Tarihi</label>
+                        <div class="custom-input-group">
+                            <span class="material-symbols-outlined">calendar_today</span>
+                            <input asp-for="BirthDate" type="date" />
+                        </div>
+                        <span asp-validation-for="BirthDate" class="text-danger small ms-1"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="custom-label">E-posta Adresi</label>
+                        <div class="custom-input-group">
+                            <span class="material-symbols-outlined">mail</span>
+                            <input asp-for="Email" type="email" placeholder="ornek@eposta.com" />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger small ms-1"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="custom-label">Þifre</label>
+                        <div class="custom-input-group">
+                            <span class="material-symbols-outlined">lock</span>
+                            <input asp-for="Password" type="password" id="regPass" placeholder="••••••••" />
+                            <button type="button" onclick="togglePassword('regPass', 'eye1')" style="background:none; border:none; padding:0; display:flex;">
+                                <span class="material-symbols-outlined" id="eye1" style="cursor: pointer; margin-right:0;">visibility_off</span>
+                            </button>
+                        </div>
+                        <span asp-validation-for="Password" class="text-danger small ms-1"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="custom-label">Þifre (Tekrar)</label>
+                        <div class="custom-input-group">
+                            <span class="material-symbols-outlined">lock_reset</span>
+                            <input asp-for="ConfirmPassword" type="password" id="regConfirm" placeholder="••••••••" />
+                            <button type="button" onclick="togglePassword('regConfirm', 'eye2')" style="background:none; border:none; padding:0; display:flex;">
+                                <span class="material-symbols-outlined" id="eye2" style="cursor: pointer; margin-right:0;">visibility_off</span>
+                            </button>
+                        </div>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger small ms-1"></span>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        Kayýt Ol
+                    </button>
+                </form>
+
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+
+<script>
+    function togglePassword(inputId, iconId) {
+        var input = document.getElementById(inputId);
+        var icon = document.getElementById(iconId);
+        if (input.type === "password") {
+            input.type = "text";
+            icon.innerText = "visibility";
+        } else {
+            input.type = "password";
+            icon.innerText = "visibility_off";
+        }
+    }
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

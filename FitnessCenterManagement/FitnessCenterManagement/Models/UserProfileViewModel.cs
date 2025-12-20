@@ -17,8 +17,7 @@ namespace FitnessCenterManagement.Models
 
         // --- ŞİFRE DEĞİŞTİRME ALANLARI ---
 
-        // NOT: View sayfasındaki tasarıma uyması için isimleri değiştirdik.
-        // Ayrıca [Required] kaldırdık ki sadece isim güncellerken şifre sormasın.
+        // [Required] kaldırdık ki sadece isim güncellerken şifre sormasın.
 
         [DataType(DataType.Password)]
         [Display(Name = "Yeni Şifre")]

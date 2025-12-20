@@ -12,7 +12,7 @@ namespace FitnessCenterManagement.Models
         public string Name { get; set; } = string.Empty;
 
         [Display(Name = "Süre (Dakika)")]
-        public int Duration { get; set; } // Örn: 45 dk
+        public int Duration { get; set; } 
 
         [Display(Name = "Ücret")]
         public decimal Price { get; set; }

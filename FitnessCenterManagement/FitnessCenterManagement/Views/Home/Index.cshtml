@@ -2,162 +2,100 @@
 
 @{
     ViewData["Title"] = "Ana Sayfa";
-    // Layout = "_Layout"; // Varsayılan olarak zaten _Layout gelir, yazmaya gerek yok ama emin olmak için kalsın.
 }
 
 <style>
-    /* 1. Sayfa Arka Planını Zorla Değiştir */
-    body {
-        background-color: #102219 !important; /* Arka plan koyu yeşil */
-        color: #ffffff;
-        font-family: 'Inter', sans-serif;
-    }
-
-    /* 2. Hero Alanı (Üst Banner) */
-    .hero-section {
+    /* Hero Alanı (Arkaplan Resmi) */
+    .hero-wrap {
         position: relative;
-        height: 60vh;
-        min-height: 400px;
-        background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') no-repeat center center/cover;
-        border-radius: 0 0 30px 30px;
-        overflow: hidden;
+        min-height: 60vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
-        margin-bottom: 50px;
+        overflow: hidden;
+        margin-top: -1px;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/img/gym-hero.jpg') center/cover no-repeat;
+        z-index: -1;
     }
 
     .hero-overlay {
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(to bottom, rgba(16, 34, 25, 0.6), #102219);
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        padding: 20px;
-    }
-
-    .hero-title {
-        font-size: 3.5rem;
-        font-weight: 800;
-        color: white;
-        margin-bottom: 10px;
-    }
-
-    .highlight-text {
-        color: #13ec80; /* Neon Yeşil */
-    }
-
-    /* 3. Kart Tasarımları (Gym Listesi) */
-    .gym-card {
-        background-color: #1c392a; /* Kart Rengi */
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
+        background: linear-gradient(to top, var(--bg-dark), rgba(17, 24, 20, 0.6), transparent);
+        z-index: -1;
+    }
+
+    /* Kart Tasarımı */
+    .gym-card {
+        background-color: var(--card-dark);
+        border: 1px solid var(--border-dark);
+        border-radius: 16px;
+        padding: 20px;
+        height: 100%;
+        transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
         .gym-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(19, 236, 128, 0.15); /* Yeşil gölge */
-            border-color: #13ec80;
+            border-color: var(--neon-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-    .gym-image {
-        height: 200px;
-        background-color: #0f1f17;
+    /* İkon Kutusu */
+    .icon-box {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(255,255,255,0.05);
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #13ec80;
-        font-size: 4rem;
-    }
-
-    .gym-body {
-        padding: 20px;
-        flex-grow: 1;
-    }
-
-    .gym-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: white;
-        margin-bottom: 10px;
-    }
-
-    .gym-info {
-        color: #a0aec0;
-        font-size: 0.9rem;
-        margin-bottom: 5px;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    /* 4. Butonlar */
-    .btn-neon {
-        background-color: #13ec80;
-        color: #000000;
-        font-weight: 700;
-        border-radius: 12px;
-        padding: 10px 20px;
-        border: none;
-        width: 100%;
-        display: block;
-        text-align: center;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        margin-top: 15px;
-    }
-
-        .btn-neon:hover {
-            background-color: #0fb863;
-            color: black;
-            box-shadow: 0 0 15px rgba(19, 236, 128, 0.4);
-        }
-
-    /* Mevcut Navbar'daki yazıları beyaz yapmak için ufak bir hile (Eğer navbar beyazsa) */
-    .navbar {
-        /* Bootstrap navbar override */
-        background-color: #1c392a !important;
-        border-bottom: 1px solid #2d4a3e;
-    }
-
-    .navbar-brand, .nav-link {
-        color: white !important;
+        margin-bottom: 20px;
+        color: var(--neon-green);
     }
 </style>
 
-<div class="hero-section">
+<div class="hero-wrap text-center">
+    <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1 class="hero-title">Sınırlarını <span class="highlight-text">Yok Et.</span></h1>
-        <p class="lead text-light">En iyi ekipmanlar, profesyonel eğitmenler ve sana özel programlar.</p>
+
+    <div class="container position-relative">
+        <span class="badge rounded-pill border border-success text-success bg-black px-3 py-2 mb-4">
+            YENİ NESİL SPOR
+        </span>
+        <h1 class="display-3 fw-bolder text-white mb-4">
+            Sınırlarını <span style="color: var(--neon-green);">Yok Et.</span>
+        </h1>
+        <p class="lead text-secondary mx-auto" style="max-width: 600px;">
+            Profesyonel eğitmenler ve yapay zeka destekli programlarla hedefine en kısa sürede ulaş.
+        </p>
 
         @if (!User.Identity.IsAuthenticated)
         {
-            <a href="/Account/Register" class="btn btn-neon" style="display:inline-block; width:auto; padding: 12px 40px; margin-top: 20px;">
-                Hemen Üye Ol
-            </a>
+            <div class="mt-4">
+                <a href="/Account/Register" class="btn btn-neon btn-lg shadow">
+                    Hemen Başla
+                </a>
+            </div>
         }
     </div>
 </div>
 
-<div class="container pb-5">
-    <div class="row mb-4">
-        <div class="col-12 text-center">
-            <h2 style="font-weight: 800; color: white;">Salonlarımız</h2>
-            <p style="color: #a0aec0;">Size en yakın şubemizi seçin ve randevunuzu oluşturun.</p>
-        </div>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-white">Salonlarımız</h2>
+        <p class="text-secondary">Size en yakın şubeyi seçin ve randevu alın.</p>
     </div>
 
     @if (Model != null && Model.Any())
@@ -166,25 +104,28 @@
             @foreach (var gym in Model)
             {
                 <div class="col-md-4">
-                    <div class="gym-card">
-                        <div class="gym-image">
-                            <span class="material-symbols-outlined" style="font-size: 64px;">fitness_center</span>
+                    <div class="gym-card d-flex flex-column">
+                        <div class="icon-box">
+                            <span class="material-symbols-outlined fs-2">fitness_center</span>
                         </div>
 
-                        <div class="gym-body">
-                            <h3 class="gym-title">@gym.Name</h3>
+                        <h3 class="h4 fw-bold text-white mb-3">@gym.Name</h3>
 
-                            <div class="gym-info">
-                                <span>📍 @gym.Address</span>
+                        <div class="mb-4 text-secondary">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="material-symbols-outlined me-2 fs-5">location_on</span>
+                                <small>@gym.Address</small>
                             </div>
-                            <div class="gym-info">
-                                <span>⏰ @gym.OpenHour - @gym.CloseHour</span>
+                            <div class="d-flex align-items-center">
+                                <span class="material-symbols-outlined me-2 fs-5">schedule</span>
+                                <small>@gym.OpenHour - @gym.CloseHour</small>
                             </div>
-
-                            <a asp-controller="Appointment" asp-action="Create" asp-route-gymId="@gym.Id" class="btn-neon">
-                                Randevu Al
-                            </a>
                         </div>
+
+                        <a asp-controller="Appointment" asp-action="Create" asp-route-gymId="@gym.Id"
+                           class="btn btn-neon w-100 mt-auto">
+                            Randevu Al
+                        </a>
                     </div>
                 </div>
             }
@@ -192,11 +133,9 @@
     }
     else
     {
-        <div class="text-center p-5" style="background: #1c392a; border-radius: 16px;">
-            <h3 class="text-white">Henüz Salon Eklenmemiş</h3>
-            <p class="text-muted">Lütfen yönetici panelinden spor salonu ekleyiniz.</p>
+        <div class="text-center p-5 gym-card">
+            <span class="material-symbols-outlined fs-1 text-secondary mb-3">sentiment_dissatisfied</span>
+            <p class="lead text-white">Henüz salon eklenmemiş.</p>
         </div>
     }
 </div>
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />

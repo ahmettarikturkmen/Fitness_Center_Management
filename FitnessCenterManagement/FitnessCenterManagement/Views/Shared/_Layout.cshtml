@@ -1,202 +1,414 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using Microsoft.AspNetCore.Identity
+@using FitnessCenterManagement.Models
+
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    var activeController = ViewContext.RouteData.Values["Controller"]?.ToString();
+    var activeAction = ViewContext.RouteData.Values["Action"]?.ToString();
+
+    string displayName = "Kullanıcı";
+    if (User.Identity.IsAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(User);
+        if (user != null)
+        {
+            displayName = user.FullName;
+        }
+        else
+        {
+            displayName = User.Identity.Name;
+        }
+    }
+}
+
+<!DOCTYPE html>
+<html lang="tr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FitnessCenterManagement</title>
+    <title>@ViewData["Title"] - Fitness Center</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FitnessCenterManagement.styles.css" asp-append-version="true" />
+    <link rel="icon" type="image/svg+xml" href="~/favicon.svg" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
     <style>
-        /* Navbar'ın Kendisi */
-        .navbar-modern {
-            background-color: rgba(28, 57, 42, 0.95) !important; /* Yarı saydam koyu yeşil */
-            backdrop-filter: blur(10px); /* Buzlu cam efekti */
-            border-bottom: 1px solid rgba(19, 236, 128, 0.1); /* İnce neon çizgi */
-            padding: 15px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        /* TEMEL DEĞİŞKENLER VE AYARLAR */
+        :root {
+            --neon-green: #13ec80;
+            --bg-dark: #111814;
+            --card-dark: #1c2721;
+            --border-dark: #283930;
+            --text-muted: #9db9ab;
+            --text-light: #ffffff;
         }
 
         body {
-            padding-top: 80px; /* Navbar yüksekliği kadar boşluk bırak */
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Logo */
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-dark);
+            border-radius: 4px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #3b5447;
+            }
+
+        /*  NAVBAR (Responsive Ayarlı)*/
+        .navbar-custom {
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid var(--border-dark);
+            padding: 1rem 0; 
+        }
+
         .brand-logo {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: white !important;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.25rem;
             display: flex;
             align-items: center;
-            gap: 8px;
-            text-decoration: none;
+            gap: 10px;
         }
 
-        .brand-icon {
-            color: #13ec80; /* Neon Yeşil */
-            font-size: 2rem;
-        }
+            .brand-logo:hover {
+                color: var(--neon-green);
+            }
 
-        /* Linkler */
-        .nav-link-modern {
-            color: #cbd5e0 !important;
+        /* Linkler için temel stil */
+        .nav-link-custom {
+            color: var(--text-muted);
             font-weight: 500;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-            .nav-link-modern:hover, .nav-link-modern.active {
-                color: #13ec80 !important;
-            }
-
-            /* Hover efekti (Alt çizgi animasyonu) */
-            .nav-link-modern::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: -5px;
-                left: 0;
-                background-color: #13ec80;
-                transition: width 0.3s ease;
-            }
-
-            .nav-link-modern:hover::after {
-                width: 100%;
-            }
-
-        /* Giriş Yap / Kayıt Ol Butonları */
-        .btn-nav-login {
-            color: white;
-            font-weight: 600;
             text-decoration: none;
-            margin-right: 15px;
-            transition: color 0.3s;
+            transition: 0.3s;
+            display: block; /* Mobilde alt alta gelmesi için */
+            padding: 0.5rem 0; /* Mobilde aralık */
         }
 
-            .btn-nav-login:hover {
-                color: #13ec80;
-            }
+        /* Masaüstü (Large ekran) ayarları */
+        @@media (min-width: 992px) {
+            .nav-link-custom
 
-        .btn-nav-register {
-            background-color: #13ec80;
-            color: #000;
-            padding: 8px 20px;
-            border-radius: 8px;
+        {
+            margin-left: 1rem;
+            padding: 0;
+            display: inline-block;
+        }
+
+        }
+
+        .nav-link-custom:hover {
+            color: var(--text-light);
+        }
+
+        .active-nav {
+            color: var(--neon-green) !important;
             font-weight: 700;
+        }
+
+        /* Hamburger Menü İkon Rengi */
+        .navbar-toggler {
+            border-color: var(--border-dark);
+        }
+
+            .navbar-toggler:focus {
+                box-shadow: 0 0 0 0.25rem rgba(19, 236, 128, 0.25);
+            }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .btn-neon {
+            background-color: var(--neon-green);
+            color: black;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 8px 20px;
             text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            display: inline-block;
+        }
+
+            .btn-neon:hover {
+                background-color: #0fb863;
+                color: black;
+                box-shadow: 0 0 15px rgba(19, 236, 128, 0.4);
+            }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-dark);
+            background-color: var(--bg-dark);
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        /*GLOBAL KOYU TEMA*/
+        .card {
+            background-color: var(--card-dark);
+            border-color: var(--border-dark);
+            color: var(--text-light);
+        }
+
+        .card-header {
+            background-color: rgba(0,0,0,0.2);
+            border-bottom-color: var(--border-dark);
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        .card-footer {
+            background-color: rgba(0,0,0,0.2);
+            border-top-color: var(--border-dark);
+        }
+
+        .table {
+            --bs-table-color: var(--text-light);
+            --bs-table-bg: var(--card-dark);
+            --bs-table-border-color: var(--border-dark);
+            --bs-table-striped-bg: rgba(255,255,255,0.02);
+            --bs-table-striped-color: var(--text-light);
+            --bs-table-hover-bg: rgba(255,255,255,0.05);
+            --bs-table-hover-color: #ffffff;
+            color: var(--text-light);
+            border-color: var(--border-dark);
+            vertical-align: middle;
+        }
+
+            .table thead th {
+                color: var(--neon-green);
+                font-weight: 700;
+                border-bottom: 2px solid var(--border-dark);
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
+            }
+
+        .table-hover tbody tr:hover {
+            color: #ffffff !important;
+            background-color: rgba(255,255,255,0.08) !important;
+        }
+
+        .form-control, .form-select {
+            background-color: var(--card-dark) !important;
+            border: 1px solid var(--border-dark);
+            color: var(--text-light) !important;
+            border-radius: 8px;
+            padding: 10px 15px;
+        }
+
+            .form-control:focus, .form-select:focus {
+                background-color: var(--card-dark) !important;
+                border-color: var(--neon-green);
+                box-shadow: 0 0 0 0.25rem rgba(19, 236, 128, 0.25);
+                color: var(--text-light) !important;
+            }
+
+            .form-control::placeholder {
+                color: var(--text-muted);
+                opacity: 1;
+            }
+
+            .form-control:disabled {
+                background-color: var(--bg-dark) !important;
+                opacity: 0.7;
+            }
+
+        .form-label {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-content {
+            background-color: var(--card-dark);
+            border: 1px solid var(--border-dark);
+        }
+
+        .modal-header, .modal-footer {
+            border-color: var(--border-dark);
+        }
+
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
+        /* Buton Override */
+        .btn-warning {
+            background-color: rgba(255, 193, 7, 0.05) !important;
+            border: 1px solid #ffc107 !important;
+            color: #ffc107 !important;
             transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+            .btn-warning:hover {
+                background-color: #ffc107 !important;
+                color: #000 !important;
+                box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+                transform: translateY(-2px);
+            }
+
+        .btn-danger {
+            background-color: rgba(220, 53, 69, 0.05) !important;
+            border: 1px solid #ff4d5a !important;
+            color: #ff4d5a !important;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+            .btn-danger:hover {
+                background-color: #ff4d5a !important;
+                color: #fff !important;
+                box-shadow: 0 0 15px rgba(255, 77, 90, 0.4);
+                transform: translateY(-2px);
+            }
+
+        .btn-success {
+            background-color: var(--neon-green) !important;
+            border: 1px solid var(--neon-green) !important;
+            color: #000 !important;
+            font-weight: 700;
             box-shadow: 0 0 10px rgba(19, 236, 128, 0.2);
         }
 
-            .btn-nav-register:hover {
-                background-color: #0fb863;
+            .btn-success:hover {
+                background-color: #0fb863 !important;
                 box-shadow: 0 0 20px rgba(19, 236, 128, 0.5);
                 transform: translateY(-2px);
-                color: black;
             }
 
-        /* Kullanıcı Profili Dropdown */
-        .user-welcome {
-            color: #13ec80;
-            font-weight: 600;
+        .btn-secondary, .btn-light {
+            background-color: transparent !important;
+            border: 1px solid #4a5a52 !important;
+            color: #9db9ab !important;
+            transition: all 0.3s ease;
         }
-    </style>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+            .btn-secondary:hover, .btn-light:hover {
+                border-color: #fff !important;
+                color: #fff !important;
+                background-color: rgba(255,255,255,0.05) !important;
+                box-shadow: 0 0 10px rgba(255,255,255,0.1);
+            }
+
+        td .btn {
+            padding: 5px 12px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+        }
+
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-modern fixed-top">
-            <div class="container">
-                <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">
-                    <span class="material-symbols-outlined brand-icon">fitness_center</span>
-                    FitnessCenter
-                </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-                </button>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <a href="/Home/Index" class="brand-logo">
+                <span class="material-symbols-outlined" style="font-size: 36px; color: var(--neon-green);">fitness_center</span>
+                Fitness Center
+            </a>
 
-                    <ul class="navbar-nav flex-grow-1 justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-modern" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
-                        </li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#fitnessNavbar"
+                    aria-controls="fitnessNavbar" aria-expanded="false" aria-label="Menüyü Aç">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                        @if (User.Identity.IsAuthenticated)
+            <div class="collapse navbar-collapse" id="fitnessNavbar">
+
+                <div class="navbar-nav ms-auto align-items-lg-center mt-3 mt-lg-0">
+
+                    <a class="nav-link-custom @(activeController == "Home" ? "active-nav" : "")"
+                       href="/Home/Index">Ana Sayfa</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-link-custom @(activeController == "Appointment" ? "active-nav" : "")"
+                           href="/Appointment/Index">Randevularım</a>
+
+                        <a class="nav-link-custom @(activeController == "AI" ? "active-nav" : "")"
+                           href="/AI/Index">AI Koç</a>
+
+                        @if (User.IsInRole("Admin"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-modern" asp-controller="Appointment" asp-action="Index">Randevularım</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-modern" asp-controller="AI" asp-action="Index">🤖 AI Koç</a>
-                            </li>
+                            <a class="nav-link-custom @(activeController == "Admin" ? "active-nav" : "")"
+                               href="/Admin/Index">Yönetim</a>
+                        }
 
-                            // Eğer Admisse Raporları görsün
-                            if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-modern" asp-controller="Admin" asp-action="Index">Yönetim Paneli</a>
-                                </li>
-                            }
-                            // Eğer Eğitmense Panelini görsün
-                            if (User.IsInRole("Trainer"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-modern" asp-controller="Trainer" asp-action="Index">Eğitmen Paneli</a>
-                                </li>
-                            }
+                        @if (User.IsInRole("Trainer"))
+                        {
+                            <a class="nav-link-custom @(activeController == "Trainer" ? "active-nav" : "")"
+                               href="/Trainer/Index">Eğitmen Paneli</a>
                         }
-                    </ul>
 
-                    <ul class="navbar-nav align-items-center">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item me-3">
-                                <a class="nav-link nav-link-modern user-welcome" asp-controller="Account" asp-action="Profile">
-                                    @User.Identity.Name
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3">Çıkış</button>
-                                </form>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="btn-nav-login" asp-controller="Account" asp-action="Login">Giriş Yap</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn-nav-register" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
-                            </li>
-                        }
-                    </ul>
+                        <div class="d-lg-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
+                            <a class="nav-link-custom @(activeController == "Account" && activeAction == "Profile" ? "active-nav" : "") m-0 p-0"
+                               href="/Account/Profile">
+                                Profilim <span class="text-secondary small fw-normal">| @displayName</span>
+                            </a>
+
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline mb-0 ms-lg-3 mt-2 mt-lg-0 d-block d-lg-inline">
+                                <button type="submit" class="btn btn-link nav-link-custom p-0 text-danger border-0" style="text-align: left;">
+                                    <span class="material-symbols-outlined" style="font-size: 1.1rem; vertical-align: text-bottom;">logout</span> Çıkış
+                                </button>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="d-lg-flex align-items-center mt-3 mt-lg-0">
+                            <a class="nav-link-custom @(activeController == "Account" && activeAction == "Login" ? "active-nav" : "")"
+                               href="/Account/Login">Giriş Yap</a>
+
+                            <a class="btn-neon ms-lg-3 mt-2 mt-lg-0 d-block text-center" href="/Account/Register">Kayıt Ol</a>
+                        </div>
+                    }
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        </div>
+    </nav>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - FitnessCenterManagement - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p style="color: var(--text-muted); margin: 0;">
+                &copy; 2025 Fitness Center. <span style="color: var(--neon-green);">Güç Seninle Olsun.</span>
+            </p>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

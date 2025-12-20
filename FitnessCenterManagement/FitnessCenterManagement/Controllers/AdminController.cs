@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FitnessCenterManagement.Controllers
 {
-    // BU SATIR ÇOK ÖNEMLİ: Sadece 'Admin' rolü olanlar buraya girebilir!
+    // Sadece 'Admin' rolü olanlar buraya girebilir!
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
@@ -24,29 +24,29 @@ namespace FitnessCenterManagement.Controllers
             _roleManager = roleManager;
         }
 
-        // 1. Admin Ana Sayfası (Dashboard)
+        //Admin Ana Sayfası (Dashboard)
         public IActionResult Index()
         {
             return View();
         }
 
-        // --- GYM (SPOR SALONU) YÖNETİMİ ---
+        // GYM (SPOR SALONU) YÖNETİMİ 
 
-        // 2. Salonları Listele
+        // Salonları Listele
         public async Task<IActionResult> GymList()
         {
             var gyms = await _context.Gyms.ToListAsync();
             return View(gyms);
         }
 
-        // 3. Yeni Salon Ekleme Sayfası (GET)
+        // Yeni Salon Ekleme Sayfası (GET)
         [HttpGet]
         public IActionResult CreateGym()
         {
             return View();
         }
 
-        // 4. Yeni Salon Kaydetme İşlemi (POST)
+        // Yeni Salon Kaydetme İşlemi (POST)
         [HttpPost]
         public async Task<IActionResult> CreateGym(Gym gym)
         {
@@ -61,7 +61,7 @@ namespace FitnessCenterManagement.Controllers
 
         // --- TRAINER (ANTRENÖR) YÖNETİMİ ---
 
-        // 5. Antrenörleri Listele
+        //  Antrenörleri Listele
         public async Task<IActionResult> TrainerList()
         {
             // Include(t => t.Gym) diyerek antrenörün salon bilgisini de çekiyoruz
@@ -69,22 +69,20 @@ namespace FitnessCenterManagement.Controllers
             return View(trainers);
         }
 
-        // 6. Yeni Antrenör Ekleme Sayfası (GET)
+        //  Yeni Antrenör Ekleme Sayfası (GET)
         [HttpGet]
         public IActionResult CreateTrainer()
         {
             // Dropdown için salonları ViewBag'e yüklüyoruz
-            // (Id gönderilecek, ekranda Name görünecek)
             ViewBag.Gyms = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(_context.Gyms, "Id", "Name");
             return View();
         }
 
-        // 7. Yeni Antrenör Kaydetme (POST)
+        // Yeni Antrenör Kaydetme (POST)
         [HttpPost]
         public async Task<IActionResult> CreateTrainer(Trainer trainer)
         {
-            // ModelState validasyonu bazen ilişki nesnelerini (Gym) null gördüğü için hata verebilir.
-            // GymId doluysa sorun yok demektir, Gym nesnesini validationdan çıkarıyoruz.
+
             ModelState.Remove("Gym");
 
             if (ModelState.IsValid)
@@ -98,16 +96,16 @@ namespace FitnessCenterManagement.Controllers
             ViewBag.Gyms = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(_context.Gyms, "Id", "Name");
             return View(trainer);
         }
-        // --- SERVICE (HİZMET/DERS) YÖNETİMİ ---
+        // SERVICE (HİZMET/DERS) YÖNETİMİ 
 
-        // 8. Hizmetleri Listele
+        // Hizmetleri Listele
         public async Task<IActionResult> ServiceList()
         {
             var services = await _context.Services.Include(s => s.Gym).ToListAsync();
             return View(services);
         }
 
-        // 9. Yeni Hizmet Ekleme (GET)
+        //  Yeni Hizmet Ekleme (GET)
         [HttpGet]
         public IActionResult CreateService()
         {
@@ -115,7 +113,7 @@ namespace FitnessCenterManagement.Controllers
             return View();
         }
 
-        // 10. Yeni Hizmet Kaydetme (POST)
+        //  Yeni Hizmet Kaydetme (POST)
         [HttpPost]
         public async Task<IActionResult> CreateService(Service service)
         {
@@ -132,11 +130,7 @@ namespace FitnessCenterManagement.Controllers
             return View(service);
         }
 
-        // ==========================================
-        // DÜZENLEME VE SİLME İŞLEMLERİ (CRUD'un Sonu)
-        // ==========================================
-
-        // --- 1. GYM (SALON) İŞLEMLERİ ---
+        //  GYM (SALON) İŞLEMLERİ
 
         // GYM DÜZENLEME (GET) - Sayfayı açar ve verileri doldurur
         [HttpGet]
@@ -174,7 +168,7 @@ namespace FitnessCenterManagement.Controllers
         }
 
 
-        // --- 2. TRAINER (ANTRENÖR) İŞLEMLERİ ---
+        // TRAINER (ANTRENÖR) İŞLEMLERİ 
 
         // TRAINER DÜZENLEME (GET)
         [HttpGet]
@@ -218,7 +212,7 @@ namespace FitnessCenterManagement.Controllers
         }
 
 
-        // --- 3. SERVICE (HİZMET) İŞLEMLERİ ---
+        // SERVICE (HİZMET) İŞLEMLERİ 
 
         // SERVICE DÜZENLEME (GET)
         [HttpGet]
@@ -260,11 +254,7 @@ namespace FitnessCenterManagement.Controllers
             return RedirectToAction(nameof(ServiceList));
         }
 
-        // ==========================================
-        // KULLANICI YÖNETİMİ (LİSTELEME & DÜZENLEME)
-        // ==========================================
-
-        // 1. Kullanıcı Listesi
+        // Kullanıcı Listesi
         public async Task<IActionResult> UserList()
         {
             var users = _userManager.Users.ToList();
@@ -286,7 +276,7 @@ namespace FitnessCenterManagement.Controllers
             return View(userViewModels);
         }
 
-        // 2. Kullanıcı Düzenle (GET)
+        //  Kullanıcı Düzenle (GET)
         [HttpGet]
         public async Task<IActionResult> EditUser(string id)
         {
@@ -310,17 +300,17 @@ namespace FitnessCenterManagement.Controllers
             return View(model);
         }
 
-        // 3. Kullanıcı Düzenle (POST)
+        //  Kullanıcı Düzenle (POST)
         [HttpPost]
         public async Task<IActionResult> EditUser(UserViewModel model)
         {
             var user = await _userManager.FindByIdAsync(model.Id);
             if (user == null) return NotFound();
 
-            // 1. Temel Bilgileri Güncelle
+            //  Temel Bilgileri Güncelle
             user.FullName = model.FullName;
             user.Email = model.Email;
-            user.UserName = model.Email; // Kullanıcı adı genelde email ile aynıdır
+            user.UserName = model.Email; 
             if (model.BirthDate.HasValue)
             {
                 user.BirthDate = model.BirthDate.Value;
@@ -331,7 +321,7 @@ namespace FitnessCenterManagement.Controllers
 
             if (result.Succeeded)
             {
-                // 2. Rol Güncelleme İşlemi
+                // Rol Güncelleme İşlemi
                 var currentRoles = await _userManager.GetRolesAsync(user);
                 var currentRole = currentRoles.FirstOrDefault();
 
@@ -359,7 +349,7 @@ namespace FitnessCenterManagement.Controllers
             return View(model);
         }
 
-        // 4. Kullanıcı Sil (Opsiyonel ama gerekli olabilir)
+        // Kullanıcı Sil (Opsiyonel ama gerekli olabilir)
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string id)
         {

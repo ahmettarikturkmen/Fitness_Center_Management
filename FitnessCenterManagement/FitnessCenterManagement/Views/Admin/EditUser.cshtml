@@ -4,49 +4,125 @@
     ViewData["Title"] = "Kullanıcı Düzenle";
 }
 
-<div class="container mt-4">
+<style>
+    
+
+    /*  Soldaki İkon Kutusu (Kare Kutu) */
+    .input-group-text-custom {
+        background-color: #111814; /* Çok koyu yeşil */
+        border: 1px solid #283930; /* Kenarlık rengi */
+        border-right: 1px solid #283930 !important; /* SAĞ KENARLIĞI ZORLA GÖSTER */
+        color: #9db9ab; /* İkon rengi */
+    }
+
+    /*  Sağdaki Input Alanı */
+    .form-control-custom {
+        background-color: #111814;
+        border: 1px solid #283930;
+        color: white;
+    }
+
+        .form-control-custom:focus {
+            background-color: #111814;
+            color: white;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 0 0.25rem rgba(19, 236, 128, 0.25);
+        }
+
+    
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+    }
+</style>
+
+<div class="container py-5">
+
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow">
-                <div class="card-header bg-warning text-dark">
-                    <h4 class="mb-0">Kullanıcı Bilgilerini Düzenle</h4>
+        <div class="col-lg-8">
+
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="bg-dark border border-secondary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                    <span class="material-symbols-outlined fs-2 text-warning">manage_accounts</span>
                 </div>
-                <div class="card-body">
+                <div>
+                    <h1 class="fw-bold text-white m-0">Kullanıcı Bilgilerini Düzenle</h1>
+                    <p class="text-secondary m-0 small">Kullanıcının bilgilerini ve sistemdeki rolünü güncelleyin.</p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-lg" style="background-color: #1c2721; border: 1px solid #283930 !important;">
+
+                <div class="card-header border-bottom border-secondary py-3" style="background-color: rgba(255, 193, 7, 0.1);">
+                    <h5 class="mb-0 fw-bold text-warning d-flex align-items-center gap-2">
+                        <span class="material-symbols-outlined">edit</span>
+                        @Model.FullName
+                    </h5>
+                </div>
+
+                <div class="card-body p-4">
                     <form asp-action="EditUser" method="post">
                         <input type="hidden" asp-for="Id" />
 
                         <div class="mb-3">
-                            <label asp-for="FullName" class="form-label">Ad Soyad</label>
-                            <input asp-for="FullName" class="form-control" />
+                            <label asp-for="FullName" class="text-white fw-bold mb-2 small">Ad Soyad</label>
+                            <div class="input-group">
+                                <span class="input-group-text input-group-text-custom">
+                                    <span class="material-symbols-outlined fs-6">person</span>
+                                </span>
+                                <input asp-for="FullName" class="form-control form-control-custom" />
+                            </div>
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="Email" class="form-label">E-Posta</label>
-                            <input asp-for="Email" class="form-control" />
+                            <label asp-for="Email" class="text-white fw-bold mb-2 small">E-Posta</label>
+                            <div class="input-group">
+                                <span class="input-group-text input-group-text-custom">
+                                    <span class="material-symbols-outlined fs-6">mail</span>
+                                </span>
+                                <input asp-for="Email" class="form-control form-control-custom" />
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label asp-for="BirthDate" class="form-label">Doğum Tarihi</label>
-                            <input asp-for="BirthDate" class="form-control" />
+                        <div class="mb-4">
+                            <label asp-for="BirthDate" class="text-white fw-bold mb-2 small">Doğum Tarihi</label>
+                            <div class="input-group">
+                                <span class="input-group-text input-group-text-custom">
+                                    <span class="material-symbols-outlined fs-6">calendar_today</span>
+                                </span>
+                                <input asp-for="BirthDate" type="date" class="form-control form-control-custom" />
+                            </div>
                         </div>
 
-                        <div class="mb-3 p-3 bg-light border rounded">
-                            <label class="form-label fw-bold text-primary">Kullanıcı Yetkisi (Rol)</label>
-                            <select asp-for="SelectedRole" class="form-select">
-                                <option value="">Rol Seçiniz</option>
-                                @foreach (var role in ViewBag.Roles as List<string>)
+                        <div class="p-3 rounded-3 mb-4" style="background-color: #111814; border: 1px solid #283930;">
+                            <label class="fw-bold mb-2 d-flex align-items-center gap-2" style="color: #13ec80;">
+                                <span class="material-symbols-outlined fs-5">admin_panel_settings</span>
+                                Kullanıcı Yetkisi (Rol)
+                            </label>
+
+                            <select asp-for="SelectedRole" class="form-select"
+                                    style="background-color: #1c2721; border-color: #283930; color: white;">
+                                <option value="" class="text-muted">Rol Seçiniz</option>
+                                @if (ViewBag.Roles != null)
                                 {
-                                    <option value="@role">@role</option>
+                                    foreach (var role in ViewBag.Roles as List<string>)
+                                    {
+                                        <option value="@role">@role</option>
+                                    }
                                 }
                             </select>
-                            <small class="text-muted">Dikkat: "Trainer" seçerseniz bu kişi Eğitmen Paneline erişebilir.</small>
+
+                            <div class="d-flex align-items-center gap-2 mt-2 text-secondary small">
+                                <span class="material-symbols-outlined fs-6">info</span>
+                                <span>Dikkat: "Trainer" seçerseniz bu kişi Eğitmen Paneline erişebilir.</span>
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Değişiklikleri Kaydet</button>
+                        <button type="submit" class="btn btn-primary w-100 fw-bold py-2 d-flex align-items-center justify-content-center gap-2 shadow-lg"
+                                style="background-color: #0d6efd; border: none;">
+                            <span class="material-symbols-outlined">save</span> Değişiklikleri Kaydet
+                        </button>
                     </form>
-                </div>
-                <div class="card-footer text-center">
-                    <a asp-action="UserList" class="btn btn-link text-secondary">Vazgeç ve Listeye Dön</a>
                 </div>
             </div>
         </div>

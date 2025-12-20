@@ -21,7 +21,6 @@ namespace FitnessCenterManagement.Controllers
 
         public async Task<IActionResult> Index()
         {
-            // !!! ÝÞTE KRÝTÝK NOKTA BURASI !!!
             // Veritabanýndan Gym (Salon) tablosunu ve içindeki Hizmetleri çekiyoruz
             var gyms = await _context.Gyms.Include(g => g.Services).ToListAsync();
 

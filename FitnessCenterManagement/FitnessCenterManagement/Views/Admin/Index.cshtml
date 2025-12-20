@@ -2,60 +2,137 @@
     ViewData["Title"] = "Admin Paneli";
 }
 
-<div class="container mt-4">
-    <h1 class="display-4">Yönetim Paneli</h1>
-    <hr />
+<style>
+    
+    .admin-card {
+        background-color: #1c2721; /* Koyu Yeşil Kart */
+        border: 1px solid #283930;
+        border-radius: 16px;
+        height: 100%;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        position: relative;
+    }
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card text-white bg-primary mb-3 shadow">
-                <div class="card-header">Spor Salonları</div>
-                <div class="card-body">
-                    <h5 class="card-title">Salon Yönetimi</h5>
-                    <p class="card-text">Sistemdeki salonları ekle, düzenle veya sil.</p>
-                    <a asp-action="GymList" class="btn btn-light text-primary fw-bold">Listeye Git</a>
+        /* Hover Efekti */
+        .admin-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-green);
+            box-shadow: 0 10px 30px rgba(19, 236, 128, 0.15);
+        }
+
+    /* İkon Kutusu */
+    .card-icon-box {
+        width: 50px;
+        height: 50px;
+        background-color: #111814; 
+        border: 1px solid #283930;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        transition: 0.3s;
+    }
+
+    .admin-card:hover .card-icon-box {
+        background-color: var(--neon-green);
+        border-color: var(--neon-green);
+    }
+
+        /* Hover olunca ikon siyah olsun */
+        .admin-card:hover .card-icon-box .material-symbols-outlined {
+            color: black !important;
+        }
+
+    .card-title {
+        color: white;
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        color: #9db9ab; /* Soluk yeşil/gri yazı */
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        min-height: 40px;
+    }
+</style>
+
+<div class="container py-5">
+
+    <div class="mb-5">
+        <h1 class="fw-bold text-white m-0">Yönetim Paneli</h1>
+        <p class="text-secondary m-0 small">Sistemin genel ayarlarını ve içeriklerini buradan yönetebilirsiniz.</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+            <div class="admin-card p-4 d-flex flex-column">
+                <div class="card-icon-box">
+                    <span class="material-symbols-outlined fs-3" style="color: var(--neon-green);">apartment</span>
                 </div>
+                <h3 class="card-title">Spor Salonları</h3>
+                <p class="card-text">Sistemdeki salonları ekle, düzenle veya sil.</p>
+                <a asp-action="GymList" class="btn btn-neon w-100 mt-auto fw-bold">
+                    Listeye Git
+                </a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-success mb-3 shadow">
-                <div class="card-header">Eğitmenler</div>
-                <div class="card-body">
-                    <h5 class="card-title">Antrenör Kadrosu</h5>
-                    <p class="card-text">Yeni hocalar ekle veya uzmanlık alanlarını güncelle.</p>
-                    <a asp-action="TrainerList" class="btn btn-light text-success fw-bold">Listeye Git</a>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="admin-card p-4 d-flex flex-column">
+                <div class="card-icon-box">
+                    <span class="material-symbols-outlined fs-3" style="color: var(--neon-green);">sports_gymnastics</span>
                 </div>
+                <h3 class="card-title">Antrenör Kadrosu</h3>
+                <p class="card-text">Yeni hocalar ekle veya uzmanlık alanlarını güncelle.</p>
+                <a asp-action="TrainerList" class="btn btn-neon w-100 mt-auto fw-bold">
+                    Listeye Git
+                </a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card text-dark bg-warning mb-3 shadow">
-                <div class="card-header">Hizmetler</div>
-                <div class="card-body">
-                    <h5 class="card-title">Ders & Üyelikler</h5>
-                    <p class="card-text">Pilates, Yoga gibi hizmetleri ve fiyatlarını yönet.</p>
-                    <a asp-action="ServiceList" class="btn btn-light text-warning fw-bold">Listeye Git</a>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="admin-card p-4 d-flex flex-column">
+                <div class="card-icon-box">
+                    <span class="material-symbols-outlined fs-3" style="color: var(--neon-green);">spa</span>
                 </div>
+                <h3 class="card-title">Ders & Üyelikler</h3>
+                <p class="card-text">Pilates, Yoga gibi hizmetleri ve fiyatlarını yönet.</p>
+                <a asp-action="ServiceList" class="btn btn-neon w-100 mt-auto fw-bold">
+                    Listeye Git
+                </a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-dark mb-3 shadow">
-                <div class="card-header">Üyeler & Yetkiler</div>
-                <div class="card-body">
-                    <h5 class="card-title">Kullanıcı Yönetimi</h5>
-                    <p class="card-text">Üye bilgilerini düzenle, Eğitmen (Trainer) veya Admin yetkisi ver.</p>
-                    <a asp-action="UserList" class="btn btn-light text-dark fw-bold">Yönet</a>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="admin-card p-4 d-flex flex-column">
+                <div class="card-icon-box">
+                    <span class="material-symbols-outlined fs-3" style="color: var(--neon-green);">group_add</span>
                 </div>
+                <h3 class="card-title">Kullanıcı Yönetimi</h3>
+                <p class="card-text">Üye bilgilerini düzenle, Eğitmen veya Admin yetkisi ver.</p>
+                <a asp-action="UserList" class="btn btn-neon w-100 mt-auto fw-bold">
+                    Yönet
+                </a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-secondary mb-3 shadow">
-                <div class="card-header">İstatistikler</div>
-                <div class="card-body">
-                    <h5 class="card-title">Raporlar (API)</h5>
-                    <p class="card-text">Tarih bazlı randevu raporlarını API üzerinden getir.</p>
-                    <a asp-action="Reports" class="btn btn-light text-dark fw-bold">Görüntüle</a>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="admin-card p-4 d-flex flex-column">
+                <div class="card-icon-box">
+                    <span class="material-symbols-outlined fs-3" style="color: var(--neon-green);">bar_chart</span>
                 </div>
+                <h3 class="card-title">Raporlar (API)</h3>
+                <p class="card-text">Tarih bazlı randevu raporlarını API üzerinden getir.</p>
+                <a asp-action="Reports" class="btn btn-neon w-100 mt-auto fw-bold">
+                    Görüntüle
+                </a>
             </div>
         </div>
+
     </div>
 </div>
